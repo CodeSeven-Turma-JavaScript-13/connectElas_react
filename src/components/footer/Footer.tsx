@@ -1,13 +1,13 @@
-import React from 'react';
+
 
 function Footer() {
   return (
     <footer className="border-t border-white/5 bg-slate-950 py-12 px-4">
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left">
-          <div className="text-white font-bold uppercase tracking-widest text-xs mb-2">ConnectElas System v1.0</div>
+          <div className="text-white font-bold uppercase tracking-widest text-xs mb-2">ConnectElas System v2.0</div>
           <p className="text-[10px] text-slate-500 uppercase tracking-[0.2em]">
-            Criado com ♥ pela 7Code
+            Desenvolvido pela 7Code.
           </p>
         </div>
 
