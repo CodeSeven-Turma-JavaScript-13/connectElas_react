@@ -14,8 +14,13 @@ import FormOportunidade from './pages/oportunidades/FormOportunidade'
 import DeletarOportunidade from './pages/oportunidades/DeletarOportunidade'
 import ListarPostagens from './pages/comunidade/ListarPostagens'
 import FormPostagem from './pages/comunidade/FormPostagem'
-import ListarMentorias from './pages/mentorias/ListarMentorias'
+import ListarTemas from './pages/comunidade/ListarTemas'
+import FormTema from './pages/comunidade/FormTema'
+import DeletarTema from './pages/comunidade/DeletarTema'
 import { AuthProvider } from './contexts/AuthContext'
+import ListarMentorias from './pages/mentorias/ListarMentorias'
+import SobreNos from './pages/sobre/SobreNos'
+import Contato from './pages/contato/Contato'
 
 function App() {
  
@@ -46,9 +51,17 @@ function App() {
             <Route path="/comunidade" element={<ListarPostagens />} />
             <Route path="/comunidade/postar" element={<FormPostagem />} />
             <Route path="/comunidade/editar/:id" element={<FormPostagem />} />
+            <Route path="/temas" element={<ListarTemas />} />
+            <Route path="/cadastrar-tema" element={<FormTema />} />
+            <Route path="/editar-tema/:id" element={<FormTema />} />
+            <Route path="/deletar-tema/:id" element={<DeletarTema />} />
 
             {/* Rotas de Mentoria */}
             <Route path="/mentorias" element={<ListarMentorias />} />
+
+            {/* Rotas Institucionais */}
+            <Route path="/sobre" element={<SobreNos />} />
+            <Route path="/contato" element={<Contato />} />
           </Routes>
           <Footer />
         </div>

@@ -37,6 +37,12 @@ function Navbar() {
           <Link to="/mentorias" className="hover:text-fuchsia-400 transition-colors flex items-center gap-2">
             <GraduationCap size={18} /> Mentoria
           </Link>
+          <Link to="/sobre" className="hover:text-fuchsia-400 transition-colors">
+            Sobre Nós
+          </Link>
+          <Link to="/contato" className="hover:text-fuchsia-400 transition-colors">
+            Contato
+          </Link>
         </div>
 
         {/* Botões de Ação */}

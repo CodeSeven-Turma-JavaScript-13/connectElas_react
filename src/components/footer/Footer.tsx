@@ -7,7 +7,7 @@ function Footer() {
         <div className="text-center md:text-left">
           <div className="text-white font-bold uppercase tracking-widest text-xs mb-2">ConnectElas System v1.0</div>
           <p className="text-[10px] text-slate-500 uppercase tracking-[0.2em]">
-            Criado com ♥ pela Turma JavaScript 13
+            Criado com ♥ pela 7Code
           </p>
         </div>
 

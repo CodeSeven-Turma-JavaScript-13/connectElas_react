@@ -13,7 +13,9 @@ interface CardOportunidadeProps {
 
 function CardOportunidade({ oportunidade }: CardOportunidadeProps) {
   return (
-    <div className="group relative bg-slate-900/50 backdrop-blur-xl border border-white/5 rounded-3xl p-6 transition-all hover:border-fuchsia-500/30 hover:shadow-[0_0_40px_rgba(217,70,239,0.1)] overflow-hidden">
+    <div className={`group relative bg-slate-900/50 backdrop-blur-xl border border-white/5 rounded-3xl p-6 transition-all hover:border-fuchsia-500/30 hover:shadow-[0_0_40px_rgba(217,70,239,0.1)] overflow-hidden ${
+      !oportunidade.ativa ? 'opacity-60 grayscale-[0.5]' : ''
+    }`}>
       
       {/* Detalhe de Gradiente no Hover - pointer-events-none para não bloquear cliques */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-fuchsia-500/10 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
@@ -22,23 +24,31 @@ function CardOportunidade({ oportunidade }: CardOportunidadeProps) {
         {/* Header do Card */}
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center gap-4">
-            <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-fuchsia-600/20 to-violet-600/20 flex items-center justify-center text-fuchsia-400 border border-fuchsia-500/20">
+            <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br flex items-center justify-center border transition-all ${
+              oportunidade.ativa 
+                ? 'from-fuchsia-600/20 to-violet-600/20 text-fuchsia-400 border-fuchsia-500/20' 
+                : 'from-slate-700/20 to-slate-800/20 text-slate-500 border-white/10'
+            }`}>
               <Buildings size={24} weight="duotone" />
             </div>
             <div>
-              <h3 className="text-white font-black text-lg tracking-tight group-hover:text-fuchsia-400 transition-colors uppercase">
+              <h3 className={`text-white font-black text-lg tracking-tight group-hover:text-fuchsia-400 transition-colors uppercase ${
+                !oportunidade.ativa ? 'text-slate-400' : ''
+              }`}>
                 {oportunidade.titulo}
               </h3>
-              <p className="text-fuchsia-500/80 font-mono text-[10px] uppercase tracking-widest font-bold">
+              <p className={`font-mono text-[10px] uppercase tracking-widest font-bold ${
+                oportunidade.ativa ? 'text-fuchsia-500/80' : 'text-slate-600'
+              }`}>
                 {oportunidade.empresa}
               </p>
             </div>
           </div>
           <div className="flex flex-col items-end gap-3">
             <span className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border ${
-              oportunidade.ativa ? 'border-green-500/30 text-green-400 bg-green-500/5' : 'border-red-500/30 text-red-400 bg-red-500/5'
+              oportunidade.ativa ? 'border-green-500/30 text-green-400 bg-green-500/5' : 'border-slate-500/30 text-slate-400 bg-slate-500/5'
             }`}>
-              {oportunidade.ativa ? 'Disponível' : 'Encerrada'}
+              {oportunidade.ativa ? 'Disponível' : 'Indisponível'}
             </span>
             
             {/* Opções de Gestão - z-20 para garantir prioridade de clique */}

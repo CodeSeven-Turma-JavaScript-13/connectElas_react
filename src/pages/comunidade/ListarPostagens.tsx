@@ -6,7 +6,8 @@ import { buscar } from '../../services/Sercives';
 import CardPostagem from '../../components/comunidade/CardPostagem';
 import { 
   Users, PlusCircle, MagnifyingGlass, 
-  Funnel, Terminal, Lightning 
+  Funnel, Terminal, Lightning, 
+  Tag
 } from '@phosphor-icons/react';
 import type { Postagem } from '../../models/Postagem';
 import type { Tema } from '../../models/Tema';
@@ -61,13 +62,22 @@ function ListarPostagens() {
             </p>
           </div>
           
-          <Link 
-            to="/comunidade/postar"
-            className="inline-flex items-center gap-3 bg-white text-slate-950 px-8 py-5 rounded-[24px] font-black uppercase tracking-tighter hover:bg-fuchsia-500 hover:text-white hover:shadow-[0_0_40px_rgba(217,70,239,0.3)] transition-all active:scale-95 whitespace-nowrap"
-          >
-            <PlusCircle size={24} weight="bold" />
-            Nova Publicação
-          </Link>
+          <div className="flex gap-4">
+            <Link 
+              to="/temas"
+              className="inline-flex items-center gap-3 bg-slate-900 border border-white/10 text-white px-8 py-5 rounded-[24px] font-black uppercase tracking-tighter hover:bg-white/5 transition-all active:scale-95 whitespace-nowrap"
+            >
+              <Tag size={24} weight="bold" />
+              Gestão de Temas
+            </Link>
+            <Link 
+              to="/comunidade/postar"
+              className="inline-flex items-center gap-3 bg-white text-slate-950 px-8 py-5 rounded-[24px] font-black uppercase tracking-tighter hover:bg-fuchsia-500 hover:text-white hover:shadow-[0_0_40px_rgba(217,70,239,0.3)] transition-all active:scale-95 whitespace-nowrap"
+            >
+              <PlusCircle size={24} weight="bold" />
+              Nova Publicação
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
