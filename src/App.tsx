@@ -1,26 +1,29 @@
-import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import Cadastro from './pages/cadastro/Cadastro'
-import ListarOportunidades from './pages/oportunidades/ListarOportunidades'
+
 import Perfil from './pages/perfil/Perfil'
-import DetalhesOportunidade from './pages/oportunidades/DetalhesOportunidade'
-import FormCandidatura from './pages/oportunidades/FormCandidatura'
+
+import FormCandidatura from './components/oportunidades/formcandidatura/FormCandidatura'
 import MinhasCandidaturas from './pages/perfil/MinhasCandidaturas'
-import FormOportunidade from './pages/oportunidades/FormOportunidade'
-import DeletarOportunidade from './pages/oportunidades/DeletarOportunidade'
-import ListarPostagens from './pages/comunidade/ListarPostagens'
-import FormPostagem from './pages/comunidade/FormPostagem'
-import ListarTemas from './pages/comunidade/ListarTemas'
-import FormTema from './pages/comunidade/FormTema'
-import DeletarTema from './pages/comunidade/DeletarTema'
+import FormOportunidade from './components/oportunidades/formoportunidade/FormOportunidade'
+import DeletarOportunidade from './components/oportunidades/deletaroportunidade/DeletarOportunidade'
+import ListarPostagens from './components/comunidade/postagem/listarpostagem/ListarPostagens'
+
+
 import { AuthProvider } from './contexts/AuthContext'
 import ListarMentorias from './pages/mentorias/ListarMentorias'
 import SobreNos from './pages/sobre/SobreNos'
 import Contato from './pages/contato/Contato'
+import FormPostagem from './components/comunidade/postagem/formpostagem/FormPostagem'
+import ListarTemas from './components/comunidade/tema/listartemas/ListarTemas'
+import FormTema from './components/comunidade/tema/formtema/FormTema'
+import DeletarTema from './components/comunidade/tema/deletartema/DeletarTema'
+import ListarOportunidades from './components/oportunidades/listaroportunidades/ListarOportunidades'
+import DetalhesOportunidade from './components/oportunidades/detalhesoportunidade/DetalhesOportunidade'
 
 function App() {
  
