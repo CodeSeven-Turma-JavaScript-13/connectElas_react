@@ -4,7 +4,7 @@ import Footer from './components/footer/Footer'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import Cadastro from './pages/cadastro/Cadastro'
-
+import Cadastro2 from './pages/cadastro/Cadastro2'
 import Perfil from './pages/perfil/Perfil'
 
 import FormCandidatura from './components/oportunidades/formcandidatura/FormCandidatura'
@@ -24,6 +24,7 @@ import FormTema from './components/comunidade/tema/formtema/FormTema'
 import DeletarTema from './components/comunidade/tema/deletartema/DeletarTema'
 import ListarOportunidades from './components/oportunidades/listaroportunidades/ListarOportunidades'
 import DetalhesOportunidade from './components/oportunidades/detalhesoportunidade/DetalhesOportunidade'
+import CadastroRecrutador from './pages/cadastro/CadastroRecrutador'
 
 function App() {
  
@@ -37,6 +38,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/cadastro-recrutador" element={<CadastroRecrutador />} />
             
             {/* Rotas de Vagas */}
             <Route path="/oportunidades" element={<ListarOportunidades />} />
