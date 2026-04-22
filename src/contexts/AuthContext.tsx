@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import type { UsuarioLogin } from '../models/UsuarioLogin';
 
 // Interface que define tudo que o Contexto vai expor para a aplicação
