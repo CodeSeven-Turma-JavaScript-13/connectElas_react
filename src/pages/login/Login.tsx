@@ -55,10 +55,10 @@ function Login() {
         <div className="bg-slate-900/40 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-2xl relative overflow-hidden">
           
           {/* Detalhe de linha de código no topo do card */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent opacity-50"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-fuchsia-500 to-transparent opacity-50"></div>
 
           <div className="text-center mb-10">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-fuchsia-600 to-violet-700 text-white font-mono font-black mb-4 shadow-[0_0_30px_rgba(192,38,211,0.3)]">
+            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-fuchsia-600 to-violet-700 text-white font-mono font-black mb-4 shadow-[0_0_30px_rgba(192,38,211,0.3)]">
               &lt;/&gt;
             </div>
             <h2 className="text-3xl font-black tracking-tighter text-white uppercase italic">Acessar Sistema</h2>
@@ -121,13 +121,22 @@ function Login() {
           <div className="mt-10 pt-6 border-t border-white/5 text-center">
             <p className="text-[11px] text-slate-500 uppercase tracking-widest">
               Ainda sem credenciais?{' '}
+               </p>
               <button 
                 onClick={() => navigate('/cadastro')}
-                className="text-fuchsia-500 font-black hover:text-fuchsia-400 transition-colors ml-1"
+                className="text-fuchsia-500 font-black text-[11px] hover:text-fuchsia-400 transition-colors ml-1"
               >
                 REGISTRAR_DEV
               </button>
-            </p>
+              <span className="text-slate-700 font-mono text-xs"> |</span>
+
+              <button 
+                onClick={() => navigate('/cadastro-recrutador')}
+                className="text-fuchsia-500 font-black text-[11px] hover:text-fuchsia-400 transition-colors ml-1"
+              >
+                REGISTRAR_RECRUTADOR
+              </button>
+           
           </div>
         </div>
 
