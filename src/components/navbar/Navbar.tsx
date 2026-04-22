@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { SignOut } from '@phosphor-icons/react';
+import { SignOut, Users, GraduationCap, Briefcase } from '@phosphor-icons/react';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -27,10 +27,16 @@ function Navbar() {
         </Link>
         
         {/* Links de Navegação */}
-        <div className="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
-          <Link to="/oportunidades" className="hover:text-fuchsia-400 transition-colors">Vagas Tech</Link>
-          <Link to="#" className="hover:text-fuchsia-400 transition-colors">Comunidades</Link>
-          <Link to="#" className="hover:text-fuchsia-400 transition-colors">Mentoria</Link>
+        <div className="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-widest text-slate-400">
+          <Link to="/oportunidades" className="hover:text-fuchsia-400 transition-colors flex items-center gap-2">
+            <Briefcase size={16} /> Vagas Tech
+          </Link>
+          <Link to="/comunidade" className="hover:text-fuchsia-400 transition-colors flex items-center gap-2">
+            <Users size={18} /> Comunidade
+          </Link>
+          <Link to="/mentorias" className="hover:text-fuchsia-400 transition-colors flex items-center gap-2">
+            <GraduationCap size={18} /> Mentoria
+          </Link>
         </div>
 
         {/* Botões de Ação */}
@@ -43,7 +49,7 @@ function Navbar() {
               ÁREA DA DEV
             </Link>
           ) : (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <Link to="/perfil" className="text-[10px] font-black text-fuchsia-400 uppercase tracking-widest hover:text-white transition-colors">
                 Meu Perfil
               </Link>

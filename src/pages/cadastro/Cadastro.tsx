@@ -16,8 +16,6 @@ function Cadastro() {
     senha: '',
     foto: '',
     dataNascimento: '',
-    dataCriacao: new Date().toISOString(),
-    oportunidade: ''
   });
 
   const [usuarioResult, setUsuarioResult] = useState<Usuario>({
@@ -56,10 +54,14 @@ function Cadastro() {
 
     if (confirmarSenha === usuario.senha && usuario.senha.length >= 8) {
       try {
-        await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuarioResult);
+        // Removemos campos que podem causar erro no back-end se enviados vazios ou em formato incorreto
+        const { dataCriacao, oportunidade, ...dadosCadastro } = usuario;
+        
+        await cadastrarUsuario(`/usuarios/cadastrar`, dadosCadastro, setUsuarioResult);
         alert('Usuária cadastrada com sucesso!');
-      } catch (error) {
-        alert('Erro ao cadastrar a Usuária');
+      } catch (error: any) {
+        console.error("// erro_cadastro_detalhado:", error.response?.data || error.message);
+        alert('Erro ao cadastrar a Usuária. Verifique se o e-mail já existe.');
       }
     } else {
       alert('Dados inconsistentes. Verifique as informações de cadastro e se a senha tem no mínimo 8 caracteres.');

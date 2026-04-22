@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Configuração da instância principal do Axios
 export const api = axios.create({
-  baseURL: 'https://crm-project-pqtx.onrender.com', 
+  baseURL: '/api', 
   headers: {
     'Content-Type': 'application/json',
   },
@@ -40,7 +40,20 @@ export const buscar = async (url: string, setDados: Function, header: object) =>
 };
 
 
+export const cadastrar = async (url: string, dados: object, setDados: Function, header: object) => {
+  const resposta = await api.post(url, dados, header);
+  setDados(resposta.data);
+};
+
+
+export const atualizar = async (url: string, dados: object, setDados: Function, header: object) => {
+  const resposta = await api.put(url, dados, header);
+  setDados(resposta.data);
+};
+
+
 export const deletar = async (url: string, header: object) => {
   await api.delete(url, header);
 };
+
 

@@ -26,11 +26,23 @@ function DetalhesOportunidade() {
   useEffect(() => {
     async function carregarVaga() {
       try {
-        await buscar(`/oportunidades/${id}`, setOportunidade, {
+        // Tentativa 1: Padrão /oportunidades/id/:id (Comum em algumas APIs)
+        await buscar(`/oportunidades/id/${id}`, (dados: any) => {
+          setOportunidade(Array.isArray(dados) ? dados[0] : dados);
+        }, {
           headers: { Authorization: usuario.token }
         });
       } catch (error) {
-        console.error("Erro ao buscar detalhes da vaga", error);
+        try {
+          // Tentativa 2: Padrão /oportunidades/:id (Direto)
+          await buscar(`/oportunidades/${id}`, (dados: any) => {
+            setOportunidade(Array.isArray(dados) ? dados[0] : dados);
+          }, {
+            headers: { Authorization: usuario.token }
+          });
+        } catch (innerError: any) {
+          console.error("// erro_vaga_detalhes: falha em ambos os padrões", innerError.message);
+        }
       } finally {
         setLoading(false);
       }
@@ -60,8 +72,8 @@ function DetalhesOportunidade() {
   return (
     <div className="min-h-screen bg-slate-950 pt-24 pb-12 px-4 relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-fuchsia-600/5 rounded-full blur-[150px] -z-10"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-violet-600/5 rounded-full blur-[150px] -z-10"></div>
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-fuchsia-600/5 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-violet-600/5 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
 
       <div className="mx-auto max-w-5xl">
         {/* Botão Voltar */}
@@ -131,7 +143,7 @@ function DetalhesOportunidade() {
                 Vantagens e Benefícios
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {oportunidade.beneficios.split(',').map((beneficio, index) => (
+                {(oportunidade.beneficios || "").split(',').map((beneficio, index) => (
                   <div key={index} className="flex items-center gap-3 bg-slate-950/40 p-4 rounded-2xl border border-white/5">
                     <div className="h-2 w-2 rounded-full bg-fuchsia-500"></div>
                     <span className="text-xs text-slate-300">{beneficio.trim()}</span>
@@ -142,7 +154,7 @@ function DetalhesOportunidade() {
           </div>
 
           {/* Sidebar de Ação */}
-          <div className="space-y-6">
+          <div className="space-y-6 relative z-20">
             <div className="bg-slate-900/60 backdrop-blur-2xl border border-white/10 p-8 rounded-[32px] sticky top-24">
               <div className="text-center mb-8">
                 <p className="text-[10px] text-slate-500 font-mono uppercase tracking-[0.2em] mb-2">status_candidatura</p>

@@ -64,7 +64,10 @@ function ListarOportunidades() {
             </p>
           </div>
 
-          <button className="flex items-center justify-center gap-2 bg-white text-slate-950 px-6 py-4 rounded-2xl font-black uppercase tracking-tighter hover:bg-fuchsia-500 hover:text-white hover:shadow-[0_0_30px_rgba(217,70,239,0.3)] transition-all active:scale-95">
+          <button 
+            onClick={() => navigate('/anunciar-vaga')}
+            className="flex items-center justify-center gap-2 bg-white text-slate-950 px-6 py-4 rounded-2xl font-black uppercase tracking-tighter hover:bg-fuchsia-500 hover:text-white hover:shadow-[0_0_30px_rgba(217,70,239,0.3)] transition-all active:scale-95"
+          >
             <PlusCircle size={20} weight="bold" />
             Anunciar Vaga
           </button>
