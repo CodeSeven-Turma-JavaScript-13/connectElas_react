@@ -4,6 +4,7 @@ export interface Candidata {
 id: number;
 nome: string;
 email: string;
+senha:string;
 telefone: string;
 dataNascimento: string;
 localizacao: string;
