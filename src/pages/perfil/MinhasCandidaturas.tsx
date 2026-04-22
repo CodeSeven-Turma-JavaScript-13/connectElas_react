@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { buscar } from '../../services/Sercives';
 
 import { 
-  Briefcase, Calendar, CaretLeft, CheckCircle, 
-  Clock, Buildings, Trash 
+  
+  BriefcaseIcon,
+  BuildingsIcon,
+  CalendarIcon,
+  CaretLeftIcon,
+  CheckCircleIcon,
+  ClockIcon,
+  TrashIcon
 } from '@phosphor-icons/react';
 import type { Oportunidade } from '../../models/Oportunidade';
 
@@ -62,7 +68,7 @@ function MinhasCandidaturas() {
   return (
     <div className="min-h-screen bg-slate-950 pt-24 pb-12 px-4 relative overflow-hidden text-slate-300">
       {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-violet-600/5 rounded-full blur-[150px] -z-10"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-200 bg-violet-600/5 rounded-full blur-[150px] -z-10"></div>
 
       <div className="mx-auto max-w-5xl">
         {/* Header */}
@@ -71,11 +77,11 @@ function MinhasCandidaturas() {
             onClick={() => navigate('/perfil')}
             className="flex items-center gap-2 text-slate-600 hover:text-white transition-colors mb-4 font-mono text-xs uppercase tracking-widest"
           >
-            <CaretLeft size={16} />
+            <CaretLeftIcon size={16} />
             Retornar_ao_perfil
           </button>
           <h1 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase italic">
-            Minhas <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Candidaturas</span>
+            Minhas <span className="bg-linear-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Candidaturas</span>
           </h1>
           <p className="text-slate-500 font-mono text-[10px] mt-2 uppercase tracking-[0.3em]">
             // process_tracking.log
@@ -92,8 +98,8 @@ function MinhasCandidaturas() {
               candidaturas.map((vaga) => (
                 <div key={vaga.id} className="group bg-slate-900/40 backdrop-blur-2xl border border-white/5 p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-violet-500/30 transition-all shadow-lg">
                   <div className="flex items-center gap-5">
-                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-violet-600/20 to-fuchsia-600/20 flex items-center justify-center text-violet-400 border border-violet-500/20">
-                      <Buildings size={28} weight="duotone" />
+                    <div className="h-14 w-14 rounded-2xl bg-linear-to-br from-violet-600/20 to-fuchsia-600/20 flex items-center justify-center text-violet-400 border border-violet-500/20">
+                      <BuildingsIcon size={28} weight="duotone" />
                     </div>
                     <div>
                       <h3 className="text-white font-black text-lg uppercase tracking-tight group-hover:text-violet-400 transition-colors">
@@ -109,7 +115,7 @@ function MinhasCandidaturas() {
                     <div className="flex flex-col">
                       <span className="text-[9px] text-slate-600 font-black uppercase tracking-widest mb-1">Status</span>
                       <span className="flex items-center gap-2 text-xs text-green-400 font-bold bg-green-500/5 px-3 py-1 rounded-full border border-green-500/20">
-                        <CheckCircle size={14} weight="bold" />
+                        <CheckCircleIcon size={14} weight="bold" />
                         Em Análise
                       </span>
                     </div>
@@ -117,7 +123,7 @@ function MinhasCandidaturas() {
                     <div className="flex flex-col">
                       <span className="text-[9px] text-slate-600 font-black uppercase tracking-widest mb-1">Aplicada em</span>
                       <span className="flex items-center gap-2 text-xs text-slate-400 font-mono">
-                        <Clock size={14} />
+                        <ClockIcon size={14} />
                         {new Date(vaga.dataCriacao).toLocaleDateString('pt-BR')}
                       </span>
                     </div>
@@ -130,7 +136,7 @@ function MinhasCandidaturas() {
                         Ver Vaga
                       </Link>
                       <button className="bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 text-red-400 p-2.5 rounded-xl transition-all">
-                        <Trash size={18} weight="bold" />
+                        <TrashIcon size={18} weight="bold" />
                       </button>
                     </div>
                   </div>
@@ -139,7 +145,7 @@ function MinhasCandidaturas() {
             ) : (
               <div className="py-20 text-center bg-slate-900/20 border border-dashed border-white/10 rounded-[40px]">
                 <div className="h-16 w-16 bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Briefcase size={32} className="text-slate-700" />
+                  <BriefcaseIcon size={32} className="text-slate-700" />
                 </div>
                 <p className="text-slate-500 font-mono text-xs uppercase tracking-widest">
                   Você ainda não realizou nenhuma candidatura.
@@ -153,9 +159,9 @@ function MinhasCandidaturas() {
         )}
 
         {/* Tip */}
-        <div className="mt-12 bg-gradient-to-r from-violet-600/10 to-fuchsia-600/10 border border-violet-500/20 p-6 rounded-3xl flex items-start gap-4">
+        <div className="mt-12 bg-linear-to-r from-violet-600/10 to-fuchsia-600/10 border border-violet-500/20 p-6 rounded-3xl flex items-start gap-4">
            <div className="h-10 w-10 shrink-0 bg-violet-600/20 rounded-xl flex items-center justify-center text-violet-400">
-             <Calendar size={20} weight="bold" />
+             <CalendarIcon size={20} weight="bold" />
            </div>
            <div>
              <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-1">Dica de Carreira</h4>
