@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
 import { buscar } from '../../services/Sercives';
-import { 
-  GraduationCap, LinkedinLogo, GithubLogo, 
-  Sparkle, MagnifyingGlass, Funnel, ArrowRight 
-} from '@phosphor-icons/react';
+import { ArrowRightIcon, FunnelIcon, GithubLogoIcon, GraduationCapIcon, LinkedinLogoIcon, MagnifyingGlassIcon, SparkleIcon } from '@phosphor-icons/react';
 import type { Mentoria } from '../../models/Mentoria';
 
 function ListarMentorias() {
@@ -72,24 +69,24 @@ function ListarMentorias() {
     <div className="min-h-screen bg-slate-950 pt-28 pb-12 px-4 relative overflow-hidden text-slate-300">
       
       {/* Background Decorativo */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-violet-600/5 rounded-full blur-[150px] -z-10"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-cyan-600/5 rounded-full blur-[150px] -z-10"></div>
+      <div className="absolute top-1/4 left-1/4 w-150 h-150 bg-violet-600/5 rounded-full blur-[150px] -z-10"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-150 h-150 bg-cyan-600/5 rounded-full blur-[150px] -z-10"></div>
 
       <div className="mx-auto max-w-7xl">
         
         {/* Hero Section Mentoria */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 mb-20 bg-slate-900/40 backdrop-blur-3xl border border-white/5 p-10 md:p-16 rounded-[48px] relative overflow-hidden">
            <div className="absolute top-0 right-0 p-8 opacity-10">
-              <GraduationCap size={160} weight="thin" />
+              <GraduationCapIcon size={160} weight="thin" />
            </div>
            
            <div className="max-w-2xl relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-violet-600/10 border border-violet-500/20 rounded-full text-[10px] font-black text-violet-400 uppercase tracking-widest mb-6">
-               <Sparkle size={14} weight="fill" />
+               <SparkleIcon size={14} weight="fill" />
                Acelere seu Conhecimento
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-white italic tracking-tighter uppercase leading-[0.9] mb-6">
-              Mentoras de <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Alta Performance</span>
+              Mentoras de <span className="bg-linear-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Alta Performance</span>
             </h1>
             <p className="text-slate-400 text-sm leading-relaxed max-w-lg mb-8">
               Encontre o guia certo para sua carreira. Nossas mentoras são líderes do mercado prontas para compartilhar experiências reais e técnicas.
@@ -106,7 +103,7 @@ function ListarMentorias() {
 
            <div className="relative group">
               <div className="absolute inset-0 bg-violet-600 opacity-20 blur-[60px] group-hover:opacity-40 transition-opacity"></div>
-              <div className="relative bg-slate-950 border border-white/10 p-8 rounded-[32px] w-full lg:w-80 shadow-2xl">
+              <div className="relative bg-slate-950 border border-white/10 p-8 rounded-4xl w-full lg:w-80 shadow-2xl">
                  <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4">Seja uma Mentora</h4>
                  <p className="text-[10px] text-slate-500 leading-relaxed uppercase tracking-tighter mb-6">Compartilhe seu brilho e ajude a formar as próximas líderes tech.</p>
                  <button className="w-full bg-white text-slate-950 px-6 py-4 rounded-2xl font-black uppercase tracking-tighter text-xs hover:bg-violet-500 hover:text-white transition-all active:scale-95">
@@ -119,7 +116,7 @@ function ListarMentorias() {
         {/* Toolbar de Filtros */}
         <div className="flex flex-col md:flex-row gap-6 mb-12 items-center justify-between">
            <div className="relative w-full md:max-w-md">
-             <MagnifyingGlass size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-600" />
+             <MagnifyingGlassIcon size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-600" />
              <input 
                type="text" 
                placeholder="FILTRARPER_ESPECIALIDADE_OU_NOME..."
@@ -127,7 +124,7 @@ function ListarMentorias() {
              />
            </div>
            <div className="flex items-center gap-4 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
-              <button className="flex items-center gap-2 px-5 py-3 rounded-xl bg-violet-600/10 text-violet-400 border border-violet-500/20 text-[9px] font-black uppercase tracking-widest shrink-0"><Funnel size={14} /> Filtros</button>
+              <button className="flex items-center gap-2 px-5 py-3 rounded-xl bg-violet-600/10 text-violet-400 border border-violet-500/20 text-[9px] font-black uppercase tracking-widest shrink-0"><FunnelIcon size={14} /> Filtros</button>
               {['React', 'Node', 'Java', 'Python', 'DevOps'].map(stack => (
                 <button key={stack} className="px-5 py-3 rounded-xl border border-white/5 text-slate-500 hover:text-white hover:bg-white/5 transition-all text-[9px] font-black uppercase tracking-widest shrink-0">{stack}</button>
               ))}
@@ -172,17 +169,17 @@ function ListarMentorias() {
                 <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
                   <div className="flex gap-3">
                     <a href={mentora.linkedin} className="h-8 w-8 rounded-lg bg-slate-950 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-violet-600 transition-all">
-                       <LinkedinLogo size={18} weight="bold" />
+                       <LinkedinLogoIcon size={18} weight="bold" />
                     </a>
                     {mentora.github && (
                       <a href={mentora.github} className="h-8 w-8 rounded-lg bg-slate-950 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-violet-600 transition-all">
-                        <GithubLogo size={18} weight="bold" />
+                        <GithubLogoIcon size={18} weight="bold" />
                       </a>
                     )}
                   </div>
                   
                   <button className="flex items-center gap-2 text-[10px] font-black text-white uppercase tracking-tighter hover:text-violet-400 transition-colors">
-                    Solicitar Agenda <ArrowRight size={16} weight="bold" />
+                    Solicitar Agenda <ArrowRightIcon size={16} weight="bold" />
                   </button>
                 </div>
               </div>
