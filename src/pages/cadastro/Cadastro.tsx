@@ -1,8 +1,8 @@
 import React, {  useEffect, useState, type ChangeEvent } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { cadastrarUsuario } from '../../services/Sercives';
-import { Code, UserPlus } from '@phosphor-icons/react';
+import { CodeIcon, UserPlusIcon } from '@phosphor-icons/react';
 import type { Usuario } from '../../models/Usuario';
 
 function Cadastro() {
@@ -83,11 +83,11 @@ function Cadastro() {
       <div className="w-full max-w-2xl">
         <div className="bg-slate-900/40 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-2xl relative overflow-hidden">
           
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-violet-500 to-transparent opacity-50"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-violet-500 to-transparent opacity-50"></div>
 
           <div className="text-center mb-8">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-700 text-white font-mono font-black mb-4 shadow-[0_0_30px_rgba(139,92,246,0.3)]">
-              <UserPlus size={32} weight="bold" />
+            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-violet-600 to-fuchsia-700 text-white font-mono font-black mb-4 shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+              <UserPlusIcon size={32} weight="bold" />
             </div>
             <h2 className="text-3xl font-black tracking-tighter text-white uppercase italic">Criar Conta Dev</h2>
             
@@ -207,7 +207,7 @@ function Cadastro() {
               </button>
               <button
                 type="submit"
-                className="flex-[2] group relative flex items-center justify-center rounded-xl bg-white px-8 py-4 text-slate-950 font-black uppercase tracking-tighter transition-all hover:bg-violet-600 hover:text-white hover:shadow-[0_0_25px_rgba(139,92,246,0.4)] active:scale-95"
+                className="flex-2 group relative flex items-center justify-center rounded-xl bg-white px-8 py-4 text-slate-950 font-black uppercase tracking-tighter transition-all hover:bg-violet-600 hover:text-white hover:shadow-[0_0_25px_rgba(139,92,246,0.4)] active:scale-95"
               >
                 Compilar Cadastro
                 <span className="ml-3 font-mono text-lg transition-transform group-hover:translate-x-1">→</span>
@@ -219,7 +219,7 @@ function Cadastro() {
           <div className="mt-8 pt-6 border-t border-white/5">
              <div className="flex justify-between items-center text-[9px] font-mono text-slate-700 uppercase tracking-widest">
               <div className="flex items-center gap-2">
-                <Code size={12} className="text-violet-500" />
+                <CodeIcon size={12} className="text-violet-500" />
                 DADOS_VALIDADOS: TRUE
               </div>
               <span>SSL_ENCRYPTION: ACTIVE</span>
