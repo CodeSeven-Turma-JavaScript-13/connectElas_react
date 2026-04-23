@@ -22,7 +22,7 @@ function SobreNos() {
             Construindo <span className="text-violet-500">Futuros</span>
           </h1>
           <p className="max-w-2xl mx-auto text-slate-500 font-mono text-xs uppercase tracking-[0.3em] leading-relaxed">
-            // connect_elas.about_us.manifesto.v1.0
+            // connect_elas.about_us.manifesto.v2.0
           </p>
         </div>
 
@@ -34,7 +34,7 @@ function SobreNos() {
             </div>
             <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter">
               Mais do que uma plataforma,<br />
-              um <span className="text-fuchsia-500 font-extrabold underline decoration-fuchsia-500/30">Ecossistema</span>.
+              um <span className="text-fuchsia-500 from-fuchsia-400 to-violet-400 font-extrabold underline decoration-fuchsia-500/30">Ecossistema</span>.
             </h2>
             <p className="text-slate-400 leading-relaxed text-lg">
               A 7Code nasceu da necessidade de criar um espaço seguro, vibrante e repleto de oportunidades para mulheres na tecnologia. Somos um hub de conexão entre empresas que valorizam a diversidade e profissionais que buscam o próximo nível em suas carreiras.

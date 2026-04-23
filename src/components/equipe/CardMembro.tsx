@@ -1,22 +1,22 @@
-
 import React from 'react';
 
 interface CardMembroProps {
   nome: string;
   funcao: string;
   foto: string;
+  link?: string;
 }
 
-const CardMembro: React.FC<CardMembroProps> = ({ nome, funcao, foto }) => {
-  return (
+const CardMembro: React.FC<CardMembroProps> = ({ nome, funcao, foto, link }) => {
+  const conteudo = (
     <div className="group relative flex flex-col items-center">
       {/* Container da Imagem com efeito de borda brilhante */}
       <div className="relative mb-6">
         <div className="absolute -inset-1 bg-linear-to-r from-fuchsia-600 to-violet-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
         <div className="relative h-40 w-40 overflow-hidden rounded-full border-2 border-white/10 bg-slate-900 shadow-2xl transition-transform duration-500 group-hover:scale-105">
-          <img 
-            src={foto} 
-            alt={nome} 
+          <img
+            src={foto}
+            alt={nome}
             className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
           />
         </div>
@@ -33,6 +33,16 @@ const CardMembro: React.FC<CardMembroProps> = ({ nome, funcao, foto }) => {
       </div>
     </div>
   );
+
+  if (link) {
+    return (
+      <a href={link} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+        {conteudo}
+      </a>
+    );
+  }
+
+  return conteudo;
 };
 
 export default CardMembro;
