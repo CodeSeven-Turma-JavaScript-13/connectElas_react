@@ -7,37 +7,44 @@ const Equipe: React.FC = () => {
     {
       nome: "Julia Lima",
       funcao: "Scrum Master",
-      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/WhatsApp_Image_2026-03-06_at_13.24.23-removebg-preview-removebg-preview2.png?updatedAt=1776225975068"
+      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/WhatsApp_Image_2026-03-06_at_13.24.23-removebg-preview-removebg-preview2.png?updatedAt=1776225975068",
+      link: "https://www.linkedin.com/in/juliadlima/"
     },
     {
       nome: "Ana Beatriz",
       funcao: "Tester",
-      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Ana_Beatriz-removebg-preview-removebg-preview1.png?updatedAt=1776225975057"
+      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Ana_Beatriz-removebg-preview-removebg-preview1.png?updatedAt=1776225975057",
+      link: "https://www.linkedin.com/in/ana-beatriz-carvalho-esmaile"
     },
     {
       nome: "Larissa Mendonça",
       funcao: "Dev",
-      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Larissa_Mendonca_2-removebg-preview-removebg-preview.jpg?updatedAt=1776225973793"
+      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Larissa_Mendonca_2-removebg-preview-removebg-preview.jpg?updatedAt=1776225973793",
+      link: "https://outwake.github.io/portfolio/"
     },
     {
       nome: "Daniella Camilo",
       funcao: "Dev",
-      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Daniella_Camilo_6-removebg-preview-removebg-preview.jpg?updatedAt=1776225973607"
+      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Daniella_Camilo_6-removebg-preview-removebg-preview.jpg?updatedAt=1776225973607",
+      link: "https://www.linkedin.com/in/daniella-camilo-3b64b0393/"
     },
     {
       nome: "Lucas Jesus",
       funcao: "Dev",
-      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Lucas_Jesus_4-removebg-preview-removebg-preview.jpg?updatedAt=1776225973902"
+      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Lucas_Jesus_4-removebg-preview-removebg-preview.jpg?updatedAt=1776225973902",
+      link: "https://www.linkedin.com/in/lucas-jesus-972a8128a/"
     },
     {
       nome: "Matheus Canellas",
       funcao: "Dev",
-      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Matheus_Canellas_6-removebg-preview-removebg-preview.jpg?updatedAt=1776225973922"
+      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Matheus_Canellas_6-removebg-preview-removebg-preview.jpg?updatedAt=1776225973922",
+      link: "https://www.linkedin.com/in/matheus-canellas/"
     },
     {
       nome: "João Pedro",
       funcao: "Dev",
-      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Joao_Pedro_5-removebg-preview-removebg-preview.jpg?updatedAt=1776225973784"
+      foto: "https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Joao_Pedro_5-removebg-preview-removebg-preview.jpg?updatedAt=1776225973784",
+      link: "https://www.linkedin.com/in/joão-pedro-oliveira-95b003255/"
     }
   ];
 
@@ -68,6 +75,7 @@ const Equipe: React.FC = () => {
                 nome={membro.nome}
                 funcao={membro.funcao}
                 foto={membro.foto}
+                link={membro.link}
               />
             </div>
           ))}
