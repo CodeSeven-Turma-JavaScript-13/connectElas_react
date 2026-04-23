@@ -24,11 +24,8 @@ import FormTema from './components/comunidade/tema/formtema/FormTema'
 import DeletarTema from './components/comunidade/tema/deletartema/DeletarTema'
 import ListarOportunidades from './components/oportunidades/listaroportunidades/ListarOportunidades'
 import DetalhesOportunidade from './components/oportunidades/detalhesoportunidade/DetalhesOportunidade'
-<<<<<<< HEAD
 import CadastroRecrutador from './pages/cadastro/CadastroRecrutador'
-=======
 import Comunidade from './pages/comunidade/Comunidade'
->>>>>>> 03_Footer
 
 function App() {
  
