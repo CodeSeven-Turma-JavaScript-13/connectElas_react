@@ -27,7 +27,7 @@ function ListarMentorias() {
         const tokenHeader = { headers: { Authorization: usuario.token } };
         await buscar('/mentorias', setMentorias, tokenHeader);
       } catch (error) {
-        ToastAlerta('Erro ao carregar mentorias', 'erro')
+        
         console.error("Erro ao carregar mentorias", error);
         // Mock de dados se falhar
         setMentorias([
