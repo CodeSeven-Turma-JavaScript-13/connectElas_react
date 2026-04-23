@@ -24,7 +24,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
     id: 0,
     usuario: '',
     senha: '',
-    token: ''
+    token: '',
+    nome: '',
+    foto: '',
+    tipo: ''
 
   });
 
@@ -52,7 +55,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
       id: 0,
       usuario: '',
       senha: '',
-      token: ''
+      token: '',
+      nome: '',
+      foto: '',
+      tipo: ''
     });
   }
 
