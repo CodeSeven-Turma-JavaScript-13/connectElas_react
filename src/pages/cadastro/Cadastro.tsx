@@ -17,6 +17,7 @@ function Cadastro() {
     email: '',
     senha: '',
     telefone: '',
+    foto: '',
     dataNascimento: '',
     localizacao: '',
     area_profissional: '',
@@ -121,10 +122,16 @@ function Cadastro() {
                     className={inputClass} value={candidata.dataNascimento} onChange={atualizarEstado} required />
                 </div>
 
-                <div className="space-y-2 md:col-span-2">
+                <div className="space-y-2 ">
                   <label className={labelClass}>Localização</label>
                   <input type="text" name="localizacao" placeholder="Ex: São Paulo, SP"
                     className={inputClass} value={candidata.localizacao} onChange={atualizarEstado} required />
+                </div>
+
+                <div className="space-y-2 ">
+                  <label className={labelClass}>Foto</label>
+                  <input type="text" name="foto" placeholder="Link da sua melhor foto"
+                    className={inputClass} value={candidata.foto} onChange={atualizarEstado} required />
                 </div>
 
               </div>
