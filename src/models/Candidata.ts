@@ -6,6 +6,7 @@ nome: string;
 email: string;
 senha:string;
 telefone: string;
+foto: string,
 dataNascimento: string;
 localizacao: string;
 area_profissional: string;
