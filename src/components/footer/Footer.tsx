@@ -29,8 +29,8 @@ function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-widest mb-6 text-fuchsia-400">Navegação</h4>
             <ul className="space-y-3 text-sm text-white/60">
               <li><Link to="/perfil" className="hover:text-white transition-colors flex items-center gap-2"><UsersIcon size={16} /> Meu Perfil</Link></li>
-              <li><Link to="/vagas" className="hover:text-white transition-colors flex items-center gap-2"><GlobeIcon size={16} /> Oportunidades</Link></li>
-              <li><Link to="/candidaturas" className="hover:text-white transition-colors flex items-center gap-2">📄 Minhas Candidaturas</Link></li>
+              <li><Link to="/oportunidades" className="hover:text-white transition-colors flex items-center gap-2"><GlobeIcon size={16} /> Oportunidades</Link></li>
+              <li><Link to="/perfil/candidaturas" className="hover:text-white transition-colors flex items-center gap-2">📄 Minhas Candidaturas</Link></li>
             </ul>
           </div>
 
@@ -40,7 +40,7 @@ function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li><a href="#" className="hover:text-white transition-colors flex items-center gap-2"><BookOpenIcon size={16} /> Diretrizes</a></li>
               <li><a href="#" className="hover:text-white transition-colors flex items-center gap-2"><LinkedinLogoIcon size={16} /> LinkedIn</a></li>
-              <li><a href="#" className="hover:text-white transition-colors flex items-center gap-2"><GithubLogoIcon size={16} /> Repositório GitHub</a></li>
+              <li><a href="https://github.com/CodeSeven-Turma-JavaScript-13/connectElas_react.git" target="_blank" className="hover:text-white transition-colors flex items-center gap-2"><GithubLogoIcon size={16} /> Repositório GitHub</a></li>
             </ul>
           </div>
 
