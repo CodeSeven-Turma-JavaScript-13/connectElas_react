@@ -24,6 +24,10 @@ import FormTema from './components/comunidade/tema/formtema/FormTema'
 import DeletarTema from './components/comunidade/tema/deletartema/DeletarTema'
 import ListarOportunidades from './components/oportunidades/listaroportunidades/ListarOportunidades'
 import DetalhesOportunidade from './components/oportunidades/detalhesoportunidade/DetalhesOportunidade'
+import FloatingChat from './components/chat/FloatingChat'
+
+
+
 
 function App() {
  
@@ -66,6 +70,8 @@ function App() {
             <Route path="/sobre" element={<SobreNos />} />
             <Route path="/contato" element={<Contato />} />
           </Routes>
+         
+         <FloatingChat />
           <Footer />
         </div>
       </BrowserRouter>

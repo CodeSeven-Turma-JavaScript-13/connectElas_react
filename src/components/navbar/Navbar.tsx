@@ -40,9 +40,7 @@ function Navbar() {
           <Link to="/sobre" className="hover:text-fuchsia-400 transition-colors">
             Sobre Nós
           </Link>
-          <Link to="/contato" className="hover:text-fuchsia-400 transition-colors">
-            Contato
-          </Link>
+     
         </div>
 
         {/* Botões de Ação */}
