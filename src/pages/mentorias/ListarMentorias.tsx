@@ -31,30 +31,30 @@ function ListarMentorias() {
         setMentorias([
           {
             id: 1,
-            nome: "Ana Silva",
-            especialidade: "Arquitetura Frontend & React",
-            bio: "Especialista em React há 8 anos, focada em performance e escalabilidade. Atualmente Lead Developer em uma Big Tech.",
-            foto: "https://i.imgur.com/8KpeS9w.png",
-            linkedin: "https://linkedin.com",
-            github: "https://github.com",
+            nome: "Aimee Tompson",
+            especialidade: "Java & Spring",
+            bio: "Especialista em Java, focada em performance e escalabilidade. Atualmente Instrutora na Generation Brasil.",
+            foto: "https://media.licdn.com/dms/image/v2/C4D03AQG-GED78ZIu3g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1605569367685?e=1778716800&v=beta&t=WVgc9rJaLVjIjwPWj92iqKHZhCCbiOD1Kl3bfjMA9aY",
+            linkedin: "https://www.linkedin.com/in/aimeezita/",
             disponivel: true
           },
           {
             id: 2,
-            nome: "Beatriz Costa",
-            especialidade: "Backend & Node.js",
-            bio: "A apaixonada por infraestrutura e microsserviços. Ajudo mulheres a dominarem as entranhas do servidor.",
-            foto: "https://i.imgur.com/8KpeS9w.png",
+            nome: "Rafael Queiróz",
+            especialidade: "React & TypeScript",
+            bio: "Com mais de 25 anos de experiência na área de Tecnologia da Informação. Ajudo as pessoas a dominarem a área da tecnologia.",
+            foto: "https://avatars.githubusercontent.com/u/60499241?v=4",
             linkedin: "https://linkedin.com",
+            github: "https://github.com/rafaelq80",
             disponivel: true
           },
           {
              id: 3,
-             nome: "Clara Mendes",
-             especialidade: "DevOps & Cloud",
-             bio: "Tirando o medo do terminal. Especialista em AWS, Docker e Kubernetes.",
-             foto: "https://i.imgur.com/8KpeS9w.png",
-             linkedin: "https://linkedin.com",
+             nome: "Vitória Hardt",
+             especialidade: "Empregabilidade & Carreira",
+             bio: "Mentora de Empregabilidade: Humanizando processos seletivos e destravando carreiras.",
+             foto: "https://media.licdn.com/dms/image/v2/D4D03AQHDp4j1URIfBA/profile-displayphoto-scale_400_400/B4DZzKo_2rHYAg-/0/1772926272942?e=1778716800&v=beta&t=bvS4FLmuCzIVPwF2S-aizbq0ubNY43vacyeL6bCXydQ",
+             linkedin: "https://www.linkedin.com/in/vithardt/",
              disponivel: false
           }
         ]);
@@ -74,6 +74,7 @@ function ListarMentorias() {
 
       <div className="mx-auto max-w-7xl">
         
+
         {/* Hero Section Mentoria */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 mb-20 bg-slate-900/40 backdrop-blur-3xl border border-white/5 p-10 md:p-16 rounded-[48px] relative overflow-hidden">
            <div className="absolute top-0 right-0 p-8 opacity-10">
@@ -113,6 +114,7 @@ function ListarMentorias() {
            </div>
         </div>
 
+
         {/* Toolbar de Filtros */}
         <div className="flex flex-col md:flex-row gap-6 mb-12 items-center justify-between">
            <div className="relative w-full md:max-w-md">
@@ -125,11 +127,12 @@ function ListarMentorias() {
            </div>
            <div className="flex items-center gap-4 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
               <button className="flex items-center gap-2 px-5 py-3 rounded-xl bg-violet-600/10 text-violet-400 border border-violet-500/20 text-[9px] font-black uppercase tracking-widest shrink-0"><FunnelIcon size={14} /> Filtros</button>
-              {['React', 'Node', 'Java', 'Python', 'DevOps'].map(stack => (
+              {['React', 'Typescript', 'Java', 'Spring', 'Empregabilidade', 'Carreira'].map(stack => (
                 <button key={stack} className="px-5 py-3 rounded-xl border border-white/5 text-slate-500 hover:text-white hover:bg-white/5 transition-all text-[9px] font-black uppercase tracking-widest shrink-0">{stack}</button>
               ))}
            </div>
         </div>
+
 
         {/* Grid de Mentoras */}
         {carregando ? (
@@ -186,6 +189,7 @@ function ListarMentorias() {
             ))}
           </div>
         )}
+
 
         {/* Footer info */}
         <div className="mt-20 text-center border-t border-white/5 pt-12">
