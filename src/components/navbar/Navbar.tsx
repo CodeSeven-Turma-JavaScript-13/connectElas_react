@@ -1,7 +1,7 @@
 
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { BriefcaseIcon, GraduationCapIcon, SignOutIcon, UsersIcon } from '@phosphor-icons/react';
+import { AddressBookTabsIcon, BookIcon, BriefcaseIcon, GraduationCapIcon, SignOutIcon, UserIcon, UsersIcon } from '@phosphor-icons/react';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -32,10 +32,12 @@ function Navbar() {
           <Link to="/mentorias" className="hover:text-fuchsia-400 transition-colors flex items-center gap-2 text-sm">
             <GraduationCapIcon size={18} /> Mentoria
           </Link>
-          <Link to="/sobre" className="hover:text-fuchsia-400 transition-colors text-sm">
+          <Link to="/sobre" className="hover:text-fuchsia-400 transition-colors text-sm flex items-center gap-1">
+           <BookIcon size={18} />
             Sobre
           </Link>
-          <Link to="/contato" className="hover:text-fuchsia-400 transition-colors text-sm">
+          <Link to="/contato" className="hover:text-fuchsia-400 transition-colors text-sm flex items-center gap-2">
+            <AddressBookTabsIcon size={18} />
             Contato
           </Link>
         </div>
@@ -51,7 +53,8 @@ function Navbar() {
             </Link>
           ) : (
             <div className="flex items-center gap-6">
-              <Link to="/perfil" className="text-sm font-black text-fuchsia-400 uppercase tracking-widest hover:text-white transition-colors">
+              <Link to="/perfil" className="flex items-center text-sm font-black text-fuchsia-400 uppercase tracking-widest hover:text-white transition-colors gap-2">
+               <UserIcon size={18} />
                 Meu Perfil
               </Link>
               <button 
