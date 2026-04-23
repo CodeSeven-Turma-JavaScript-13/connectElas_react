@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 
 import { BriefcaseIcon, BuildingsIcon, CalendarIcon, CurrencyDollarIcon, MapPinIcon, PencilIcon, TrashIcon } from '@phosphor-icons/react';
@@ -8,60 +7,66 @@ interface CardOportunidadeProps {
   oportunidade: Oportunidade;
 }
 
+// Mapeamento de status para estilos e labels
+const statusConfig = {
+  DISPONIVEL:   { label: 'Disponível',   badge: 'border-green-500/30 text-green-400 bg-green-500/5',   icon: 'from-fuchsia-600/20 to-violet-600/20 text-fuchsia-400 border-fuchsia-500/20' },
+  EM_ANDAMENTO: { label: 'Em Andamento', badge: 'border-sky-500/30   text-sky-400   bg-sky-500/5',     icon: 'from-sky-600/20    to-blue-600/20   text-sky-400    border-sky-500/20'    },
+  INDISPONIVEL: { label: 'Indisponível', badge: 'border-slate-500/30 text-slate-400 bg-slate-500/5',   icon: 'from-slate-700/20  to-slate-800/20  text-slate-500  border-white/10'      },
+} as const;
+
 function CardOportunidade({ oportunidade }: CardOportunidadeProps) {
+  const status = statusConfig[oportunidade.status as keyof typeof statusConfig] ?? statusConfig.INDISPONIVEL;
+  const isAtiva = oportunidade.status !== 'INDISPONIVEL';
+
   return (
     <div className={`group relative bg-slate-900/50 backdrop-blur-xl border border-white/5 rounded-3xl p-6 transition-all hover:border-fuchsia-500/30 hover:shadow-[0_0_40px_rgba(217,70,239,0.1)] overflow-hidden ${
-      !oportunidade.ativa ? 'opacity-60 grayscale-[0.5]' : ''
+      !isAtiva ? 'opacity-60 grayscale-[0.5]' : ''
     }`}>
-      
-      {/* Detalhe de Gradiente no Hover - pointer-events-none para não bloquear cliques */}
+
+      {/* Detalhe de Gradiente no Hover */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-fuchsia-500/10 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
       <div className="flex flex-col h-full relative z-10">
         {/* Header do Card */}
         <div className="flex justify-between items-start mb-6">
           <div className="flex items-center gap-4">
-            <div className={`h-12 w-12 rounded-2xl bg-linear-to-br flex items-center justify-center border transition-all ${
-              oportunidade.ativa 
-                ? 'from-fuchsia-600/20 to-violet-600/20 text-fuchsia-400 border-fuchsia-500/20' 
-                : 'from-slate-700/20 to-slate-800/20 text-slate-500 border-white/10'
-            }`}>
+            <div className={`h-12 w-12 rounded-2xl bg-linear-to-br flex items-center justify-center border transition-all ${status.icon}`}>
               <BuildingsIcon size={24} weight="duotone" />
             </div>
             <div>
-              <h3 className={`text-white font-black text-lg tracking-tight group-hover:text-fuchsia-400 transition-colors uppercase ${
-                !oportunidade.ativa ? 'text-slate-400' : ''
+              <h3 className={`font-black text-lg tracking-tight group-hover:text-fuchsia-400 transition-colors uppercase ${
+                !isAtiva ? 'text-slate-400' : 'text-white'
               }`}>
                 {oportunidade.titulo}
               </h3>
               <p className={`font-mono text-[10px] uppercase tracking-widest font-bold ${
-                oportunidade.ativa ? 'text-fuchsia-500/80' : 'text-slate-600'
+                isAtiva ? 'text-fuchsia-500/80' : 'text-slate-600'
               }`}>
                 {oportunidade.empresa}
               </p>
             </div>
           </div>
+
           <div className="flex flex-col items-end gap-3">
-            <span className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border ${
-              oportunidade.ativa ? 'border-green-500/30 text-green-400 bg-green-500/5' : 'border-slate-500/30 text-slate-400 bg-slate-500/5'
-            }`}>
-              {oportunidade.ativa ? 'Disponível' : 'Indisponível'}
+            {/* Badge de Status */}
+            <span className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border ${status.badge}`}>
+              {status.label}
             </span>
-            
-            {/* Opções de Gestão - z-20 para garantir prioridade de clique */}
+
+            {/* Opções de Gestão */}
             <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity relative z-20">
-              <Link 
+              <Link
                 to={`/editar-vaga/${oportunidade.id}`}
                 className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 hover:scale-110 transition-all cursor-pointer"
                 title="Editar Vaga"
               >
                 <PencilIcon size={16} weight="bold" />
               </Link>
-              <Link 
+              <Link
                 to={`/deletar-vaga/${oportunidade.id}`}
                 className="p-2 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500/20 hover:scale-110 transition-all cursor-pointer"
                 title="Deletar Vaga"
-               >
+              >
                 <TrashIcon size={16} weight="bold" />
               </Link>
             </div>
@@ -105,8 +110,8 @@ function CardOportunidade({ oportunidade }: CardOportunidadeProps) {
               +12
             </div>
           </div>
-          
-          <Link 
+
+          <Link
             to={`/oportunidades/${oportunidade.id}`}
             className="text-[10px] font-black text-white uppercase tracking-widest bg-linear-to-r from-fuchsia-600 to-violet-600 px-5 py-2.5 rounded-xl hover:shadow-[0_0_15px_rgba(192,38,211,0.4)] transition-all active:scale-95 text-center relative z-20"
           >

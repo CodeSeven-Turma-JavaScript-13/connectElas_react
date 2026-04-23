@@ -58,7 +58,7 @@ function ListarOportunidades() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
           <div>
             <h1 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase italic">
-              Vagas <span className="bg-linear-to-r from-fuchsia-400 to-violet-400 bg-clip-text text-transparent">Tech Selecionadas</span>
+              Vagas <span className="bg-linear-to-r pr-1 from-fuchsia-400 to-violet-400 bg-clip-text text-transparent">Tech Selecionadas</span>
             </h1>
             <p className="text-slate-500 font-mono text-xs mt-2 uppercase tracking-[0.3em]">
               // explorando_oportunidades.root

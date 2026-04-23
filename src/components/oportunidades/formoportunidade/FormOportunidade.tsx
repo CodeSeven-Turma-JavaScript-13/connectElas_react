@@ -1,7 +1,7 @@
 import React, { useEffect, useState, type ChangeEvent } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
-import { buscar, atualizar, cadastrar } from '../../../services/Sercives';
+import { buscar, atualizar , cadastrar, atualizarParcial } from '../../../services/Sercives';
 import { 
    
   BriefcaseIcon,
@@ -32,6 +32,7 @@ function FormOportunidade() {
     nivelExperiencia: '',
     beneficios: '',
     ativa: true,
+    status: 'DISPONIVEL',
     dataCriacao: new Date().toISOString(),
     dataAtualizacao: new Date().toISOString(),
     candidata: [],
@@ -71,29 +72,30 @@ function FormOportunidade() {
   }
 
   async function gerarNovaVaga(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setCarregando(true);
+  e.preventDefault();
+  setCarregando(true);
 
-    const tokenHeader = {
-      headers: { Authorization: usuario.token }
-    };
+  const tokenHeader = { headers: { Authorization: usuario.token } };
 
-    try {
-      if (id !== undefined) {
-        await atualizar(`/oportunidades`, oportunidade, setOportunidade, tokenHeader);
-        alert('Vaga atualizada com sucesso!');
-      } else {
-        await cadastrar(`/oportunidades`, oportunidade, setOportunidade, tokenHeader);
-        alert('Vaga anunciada com sucesso!');
-      }
-      navigate('/oportunidades');
-    } catch (error) {
-      console.error("Erro ao processar vaga", error);
-      alert('Ocorreu um erro ao salvar a vaga.');
-    } finally {
-      setCarregando(false);
+  try {
+    if (id !== undefined) {
+  const camposAlterados = Object.fromEntries(
+    Object.entries(oportunidade).filter(([_, v]) => v !== '' && v !== null && v !== undefined)
+  );
+  await atualizarParcial(`/oportunidades/${id}`, camposAlterados, setOportunidade, tokenHeader);
+  alert('Vaga atualizada com sucesso!');
+  } else {
+      await cadastrar(`/oportunidades`, oportunidade, setOportunidade, tokenHeader);
+      alert('Vaga anunciada com sucesso!');
     }
+    navigate('/oportunidades');
+  } catch (error) {
+    console.error("Erro ao processar vaga", error);
+    alert('Ocorreu um erro ao salvar a vaga.');
+  } finally {
+    setCarregando(false);
   }
+}
 
   return (
     <div className="min-h-screen bg-slate-950 pt-24 pb-12 px-4 relative overflow-hidden">
@@ -114,7 +116,7 @@ function FormOportunidade() {
               {id !== undefined ? 'Editar Oportunidade' : 'Anunciar Nova Vida Tech'}
             </h1>
             <p className="text-slate-500 font-mono text-[10px] mt-2 uppercase tracking-[0.3em]">
-               // open_job_protocol.v1
+               // open_job_protocol.v2
             </p>
           </div>
 
@@ -128,7 +130,6 @@ function FormOportunidade() {
                   <input
                     type="text"
                     name="titulo"
-                    required
                     placeholder="Ex: Senior React Engineer"
                     className="w-full bg-slate-950/60 border border-white/5 rounded-2xl pl-12 pr-4 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm"
                     value={oportunidade.titulo}
@@ -143,7 +144,6 @@ function FormOportunidade() {
                   <input
                     type="text"
                     name="empresa"
-                    required
                     placeholder="Nome da sua Empresa"
                     className="w-full bg-slate-950/60 border border-white/5 rounded-2xl pl-12 pr-4 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm"
                     value={oportunidade.empresa}
@@ -160,7 +160,7 @@ function FormOportunidade() {
                 <input
                   type="text"
                   name="area"
-                  required
+                  
                   placeholder="Ex: Front-end"
                   className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-4 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm"
                   value={oportunidade.area}
@@ -192,7 +192,25 @@ function FormOportunidade() {
                   onChange={atualizarEstado}
                 />
               </div>
+
+              
             </div>
+            {/* Status da Vaga - só aparece na edição */}
+              {id !== undefined && (
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-fuchsia-400 uppercase tracking-widest ml-1">Status da Vaga</label>
+                  <select
+                    name="status"
+                    className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-4 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm appearance-none"
+                    value={oportunidade.status}
+                    onChange={atualizarEstado}
+                  >
+                    <option value="DISPONIVEL">🟢 Disponível</option>
+                    <option value="EM_ANDAMENTO">🔵 Em Andamento</option>
+                    <option value="INDISPONIVEL">⚪ Indisponível</option>
+                  </select>
+                </div>
+              )}
 
             {/* Seção 3: Local e Salário */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -232,7 +250,6 @@ function FormOportunidade() {
               <textarea
                 name="descricao"
                 rows={6}
-                required
                 placeholder="Detalhe os requisitos técnicos, cultura da empresa e o que você busca nesse talento..."
                 className="w-full bg-slate-950/60 border border-white/5 rounded-3xl px-6 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm resize-none"
                 value={oportunidade.descricao}
