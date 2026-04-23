@@ -87,7 +87,7 @@ function ListarMentorias() {
                Acelere seu Conhecimento
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-white italic tracking-tighter uppercase leading-[0.9] mb-6">
-              Mentoras de <span className="bg-linear-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Alta Performance</span>
+              Mentoras de <span className="bg-linear-to-r pr-5 pl-1 from-violet-400 to-cyan-400 bg-clip-text text-transparent">Alta Performance</span>
             </h1>
             <p className="text-slate-400 text-sm leading-relaxed max-w-lg mb-8">
               Encontre o guia certo para sua carreira. Nossas mentoras são líderes do mercado prontas para compartilhar experiências reais e técnicas.
