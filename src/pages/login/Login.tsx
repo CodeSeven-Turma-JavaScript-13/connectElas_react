@@ -13,7 +13,10 @@ function Login() {
     id: 0,
     usuario: '',
     senha: '',
-    token: ''
+    token: '',
+    nome: '',
+    foto: '',
+    tipo: ''
   });
 
   // Efeito para redirecionar caso a usuária já esteja autenticada
