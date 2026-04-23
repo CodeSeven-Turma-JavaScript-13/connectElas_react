@@ -1,37 +1,58 @@
-import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { ArrowRightIcon, BriefcaseIcon, GraduationCapIcon, UsersIcon } from '@phosphor-icons/react';
+import { useEffect, useRef } from 'react';
 
 function Home() {
   const { estaLogado } = useAuth();
-  const particlesRef = useRef(null);
- const instanceRef = useRef<import('@tsparticles/engine').Container | null>(null);
+  const particlesRef = useRef<HTMLDivElement>(null);
+  const instanceRef = useRef<any>(null);
 
-useEffect(() => {
-  let cancelled = false;
+  useEffect(() => {
+    let cancelled = false;
 
-  async function init() {
-    const { tsParticles } = await import('@tsparticles/engine');
-    const { loadAll } = await import('@tsparticles/all');
-    await loadAll(tsParticles);
+    async function init() {
+      // 1. Import dinâmico para reduzir o bundle size inicial
+      const { tsParticles } = await import('@tsparticles/engine');
+      const { loadSlim } = await import('@tsparticles/slim'); // Troquei loadAll por loadSlim
 
-    if (cancelled || !particlesRef.current) return;
+      if (cancelled) return;
 
-    instanceRef.current = await tsParticles.load({
-      id: 'tsparticles-home',
-      element: particlesRef.current,
-      options: {
-        fullScreen: { enable: false },
-        background: { color: 'transparent' },
-        particles: {
-          number: { value: 100, density: { enable: true } },
+      await loadSlim(tsParticles);
+
+      if (!particlesRef.current || cancelled) return;
+
+      // 2. Destruir instância anterior se existir (evita duplicatas no Fast Refresh)
+      if (instanceRef.current) {
+        instanceRef.current.destroy();
+      }
+
+      instanceRef.current = await tsParticles.load({
+        id: 'tsparticles-home',
+        element: particlesRef.current,
+        options: {
+          fullScreen: { enable: false }, // Mantém dentro da div pai
+          background: { color: 'transparent' },
+          fpsLimit: 60,
+          particles: {
+            number: { value: 80, density: { enable: true,  width: 1920, height: 1080 } },
             color: { value: ['#6b36c8', '#9460db', '#38bdf8', '#22d3ee', '#ffffff'] },
             shape: { type: 'circle' },
-            opacity: { value: { min: 0.2, max: 0.8 } },
+            opacity: { value: { min: 0.2, max: 0.6 } },
             size: { value: { min: 1, max: 3 } },
-            links: { enable: true, distance: 140, color: '#9460db', opacity: 0.2, width: 1 },
-            move: { enable: true, speed: 0.8, direction: 'none', outModes: { default: 'out' } },
+            links: { 
+              enable: true, 
+              distance: 150, 
+              color: '#9460db', 
+              opacity: 0.3, 
+              width: 1 
+            },
+            move: { 
+              enable: true, 
+              speed: 1, 
+              direction: 'none', 
+              outModes: { default: 'out' } 
+            },
           },
           interactivity: {
             events: {
@@ -39,32 +60,41 @@ useEffect(() => {
               onClick: { enable: true, mode: 'push' },
             },
             modes: {
-              grab: { distance: 180, links: { opacity: 0.6 } },
+              grab: { distance: 180, links: { opacity: 0.5 } },
               push: { quantity: 3 },
             },
           },
           detectRetina: true,
         },
-      }) ?? null;
+      });
     }
-init();
 
-  return () => {
-    cancelled = true;
-    instanceRef.current?.destroy(); 
-  };
-}, []);
+    init();
+
+    return () => {
+      cancelled = true;
+      if (instanceRef.current) {
+        instanceRef.current.destroy();
+        instanceRef.current = null;
+      }
+    };
+  }, []);
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-300 relative overflow-hidden">
-      {/* Partículas */}
-      <div ref={particlesRef} className="absolute inset-0 z-0" />
+      {/* Ajuste aqui: Certifique-se que a div de partículas 
+         ocupa o espaço todo e tem prioridade de fundo 
+      */}
+      <div 
+        ref={particlesRef} 
+        className="absolute inset-0 z-0 pointer-events-auto" 
+        style={{ width: '100%', height: '100%' }}
+      />
 
-      {/* Background Decorativo */}
-      <div className="absolute top-0 left-1/4 w-150 h-150 bg-fuchsia-600/10 rounded-full blur-[150px] -z-10"></div>
-      <div className="absolute bottom-0 right-1/4 w-150 h-150 bg-violet-600/10 rounded-full blur-[150px] -z-10"></div>
-
-      {/* Hero Section */}
+      {/* Background Decorativo - Aumentei o -z para garantir que fique atrás das partículas */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-fuchsia-600/10 rounded-full blur-[120px] -z-20"></div>
+      
+      {/* Hero Section - Z-10 para ficar na frente das partículas */}
       <section className="relative z-10 pt-32 pb-20 px-4">
         <div className="mx-auto max-w-7xl text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-fuchsia-400 mb-8 animate-fade-in">
