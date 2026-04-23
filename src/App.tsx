@@ -11,7 +11,7 @@ import FormCandidatura from './components/oportunidades/formcandidatura/FormCand
 import MinhasCandidaturas from './pages/perfil/MinhasCandidaturas'
 import FormOportunidade from './components/oportunidades/formoportunidade/FormOportunidade'
 import DeletarOportunidade from './components/oportunidades/deletaroportunidade/DeletarOportunidade'
-import ListarPostagens from './components/comunidade/postagem/listarpostagem/ListarPostagens'
+
 
 
 import { AuthProvider } from './contexts/AuthContext'
@@ -24,7 +24,11 @@ import FormTema from './components/comunidade/tema/formtema/FormTema'
 import DeletarTema from './components/comunidade/tema/deletartema/DeletarTema'
 import ListarOportunidades from './components/oportunidades/listaroportunidades/ListarOportunidades'
 import DetalhesOportunidade from './components/oportunidades/detalhesoportunidade/DetalhesOportunidade'
+<<<<<<< HEAD
 import CadastroRecrutador from './pages/cadastro/CadastroRecrutador'
+=======
+import Comunidade from './pages/comunidade/Comunidade'
+>>>>>>> 03_Footer
 
 function App() {
  
@@ -53,7 +57,7 @@ function App() {
             <Route path="/perfil/candidaturas" element={<MinhasCandidaturas />} />
 
             {/* Rotas da Comunidade */}
-            <Route path="/comunidade" element={<ListarPostagens />} />
+            <Route path="/comunidade" element={<Comunidade />} />
             <Route path="/comunidade/postar" element={<FormPostagem />} />
             <Route path="/comunidade/editar/:id" element={<FormPostagem />} />
             <Route path="/temas" element={<ListarTemas />} />
