@@ -1,5 +1,6 @@
 
 import { AppWindowIcon, GlobeIcon, HeartIcon, RocketLaunchIcon, TargetIcon, UsersIcon } from '@phosphor-icons/react';
+import Equipe from '../../components/equipe/Equipe';
 
 function SobreNos() {
   return (
@@ -75,6 +76,9 @@ function SobreNos() {
             </div>
           ))}
         </div>
+
+        {/* Seção Equipe */}
+        <Equipe />
 
         {/* Chamada para Ação */}
         <div className="bg-linear-to-br from-violet-600 to-fuchsia-700 rounded-[50px] p-12 md:p-24 text-center relative overflow-hidden">
