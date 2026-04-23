@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/Sercives';
 import { useAuth } from '../../contexts/AuthContext';
 import type { UsuarioLogin } from '../../models/UsuarioLogin';
+import { ToastAlerta } from '../../util/ToastAlerta';
 
 function Login() {
   const navigate = useNavigate();
@@ -40,10 +41,11 @@ function Login() {
     try {
       // Chamada para a função de login no Service.ts
       await login(`/usuarios/logar`, usuarioLogin, handleLogin);
+      ToastAlerta('Sucesso na autenticação!!','sucesso')
       console.log("%c// status_autenticacao: acesso_concedido", "color: #d946ef; font-weight: bold;");
     } catch (error) {
       console.error("// status_autenticacao: erro_critico", error);
-      alert('Erro nos dados de acesso. Verifique seu email e senha.');
+      ToastAlerta('Erro nos dados de acesso. Verifique seu email e senha.', 'erro');
     }
   }
 

@@ -16,6 +16,7 @@ import {
 import { useAuth } from '../../../contexts/AuthContext';
 import type { Oportunidade } from '../../../models/Oportunidade';
 import { buscar } from '../../../services/Sercives';
+import { ToastAlerta } from '../../../util/ToastAlerta';
 
 
 function DetalhesOportunidade() {
@@ -28,7 +29,7 @@ function DetalhesOportunidade() {
 
   useEffect(() => {
     if (!estaLogado) {
-      alert('Você precisa estar logada para ver os detalhes da vaga.');
+      ToastAlerta('Você precisa estar logada para ver os detalhes da vaga.', 'info')
       navigate('/login');
     }
   }, [estaLogado, navigate]);
@@ -51,6 +52,7 @@ function DetalhesOportunidade() {
             headers: { Authorization: usuario.token }
           });
         } catch (innerError: any) {
+          ToastAlerta("// erro_vaga_detalhes: falha em ambos os padrões", "erro")
           console.error("// erro_vaga_detalhes: falha em ambos os padrões", innerError.message);
         }
       } finally {

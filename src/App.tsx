@@ -25,11 +25,13 @@ import ListarOportunidades from './components/oportunidades/listaroportunidades/
 import DetalhesOportunidade from './components/oportunidades/detalhesoportunidade/DetalhesOportunidade'
 import CadastroRecrutador from './pages/cadastro/CadastroRecrutador'
 import Comunidade from './pages/comunidade/Comunidade'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
  
   return (
     <AuthProvider>
+      <ToastContainer />
       <BrowserRouter>
         <div className="min-h-screen bg-slate-950">
           <Navbar />

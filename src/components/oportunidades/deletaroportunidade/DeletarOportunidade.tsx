@@ -5,6 +5,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 import { buscar, deletar } from '../../../services/Sercives';
 import { BuildingsIcon, CaretLeftIcon, CheckCircleIcon, TrashIcon, WarningIcon } from '@phosphor-icons/react';
 import type { Oportunidade } from '../../../models/Oportunidade';
+import { ToastAlerta } from '../../../util/ToastAlerta';
 
 function DeletarOportunidade() {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ function DeletarOportunidade() {
         headers: { Authorization: usuario.token }
       });
     } catch (error) {
+      ToastAlerta("Erro ao buscar vaga!", "erro")
       console.error("Erro ao buscar vaga", error);
     } finally {
       setCarregando(false);
@@ -43,11 +45,11 @@ function DeletarOportunidade() {
       await deletar(`/oportunidades/${id}`, {
         headers: { Authorization: usuario.token }
       });
-      alert('Vaga removida com sucesso de nossos servidores.');
+      ToastAlerta('Vaga removida com sucesso de nossos servidores.', "sucesso");
       navigate('/oportunidades');
     } catch (error) {
       console.error("Erro ao deletar vaga", error);
-      alert('Erro ao tentar remover a vaga. Tente novamente mais tarde.');
+      ToastAlerta('Erro ao tentar remover a vaga. Tente novamente mais tarde.', "erro");
     }
   }
 

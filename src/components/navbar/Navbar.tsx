@@ -2,6 +2,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { AddressBookTabsIcon, BookIcon, BriefcaseIcon, GraduationCapIcon, SignOutIcon, UserIcon, UsersIcon } from '@phosphor-icons/react';
+import { ToastAlerta } from '../../util/ToastAlerta';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ function Navbar() {
 
   function logout() {
     handleLogout();
-    alert('Usuária deslogada com sucesso!');
+    ToastAlerta('Usuária deslogada com sucesso!', 'sucesso');
     navigate('/login');
   }
 

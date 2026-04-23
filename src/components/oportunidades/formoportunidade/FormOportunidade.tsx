@@ -13,6 +13,7 @@ import {
   RocketLaunchIcon
 } from '@phosphor-icons/react';
 import type { Oportunidade } from '../../../models/Oportunidade';
+import { ToastAlerta } from '../../../util/ToastAlerta';
 
 function FormOportunidade() {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ function FormOportunidade() {
 
   useEffect(() => {
     if (!estaLogado) {
-      alert('Você precisa estar logada para gerenciar vagas.');
+      ToastAlerta('Você precisa estar logada para gerenciar vagas.', 'info');
       navigate('/login');
     }
   }, [estaLogado, navigate]);
@@ -60,6 +61,7 @@ function FormOportunidade() {
         headers: { Authorization: usuario.token }
       });
     } catch (error) {
+      ToastAlerta("Erro ao buscar vaga!", "erro")
       console.error("Erro ao buscar vaga", error);
     }
   }
@@ -83,15 +85,15 @@ function FormOportunidade() {
     Object.entries(oportunidade).filter(([_, v]) => v !== '' && v !== null && v !== undefined)
   );
   await atualizarParcial(`/oportunidades/${id}`, camposAlterados, setOportunidade, tokenHeader);
-  alert('Vaga atualizada com sucesso!');
+  ToastAlerta('Vaga atualizada com sucesso!', 'sucesso');
   } else {
       await cadastrar(`/oportunidades`, oportunidade, setOportunidade, tokenHeader);
-      alert('Vaga anunciada com sucesso!');
+      ToastAlerta('Vaga anunciada com sucesso!', 'sucesso');
     }
     navigate('/oportunidades');
   } catch (error) {
     console.error("Erro ao processar vaga", error);
-    alert('Ocorreu um erro ao salvar a vaga.');
+    ToastAlerta('Ocorreu um erro ao salvar a vaga.', 'erro');
   } finally {
     setCarregando(false);
   }

@@ -6,6 +6,7 @@ import type { Oportunidade } from '../../../models/Oportunidade';
 import { useAuth } from '../../../contexts/AuthContext';
 import { buscar } from '../../../services/Sercives';
 import CardOportunidade from '../cardoportunidade/CardOportunidade';
+import { ToastAlerta } from '../../../util/ToastAlerta';
 
 
 function ListarOportunidades() {
@@ -19,7 +20,7 @@ function ListarOportunidades() {
   // Redireciona se não estiver logada
   useEffect(() => {
     if (!estaLogado) {
-      alert('Você precisa estar logada para acessar as oportunidades.');
+      ToastAlerta('Você precisa estar logada para acessar as oportunidades.', 'info');
       navigate('/login');
     }
   }, [estaLogado, navigate]);
@@ -32,6 +33,7 @@ function ListarOportunidades() {
         },
       });
     } catch (error) {
+      ToastAlerta("Erro ao buscar oportunidades!", "erro")
       console.error("Erro ao buscar oportunidades", error);
     }
   }

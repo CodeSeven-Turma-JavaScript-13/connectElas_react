@@ -12,6 +12,7 @@ import {
   MoneyIcon
 } from '@phosphor-icons/react';
 import type { Candidata } from '../../../models/Candidata';
+import { ToastAlerta } from '../../../util/ToastAlerta';
 
 function FormCandidatura() {
   const { id } = useParams<{ id: string }>();
@@ -57,11 +58,11 @@ function FormCandidatura() {
       await api.post(`/oportunidades/${id}/candidatar`, candidatura, {
         headers: { Authorization: usuario.token }
       });
-      alert('Candidatura enviada com sucesso! Boa sorte, dev!');
+      ToastAlerta('Candidatura enviada com sucesso! Boa sorte, dev!', 'sucesso');
       navigate('/oportunidades');
     } catch (error) {
       console.error("Erro ao enviar candidatura", error);
-      alert('Ocorreu um erro ao enviar sua candidatura. Tente novamente mais tarde.');
+      ToastAlerta('Ocorreu um erro ao enviar sua candidatura. Tente novamente mais tarde.', 'erro');
     } finally {
       setEnviando(false);
     }

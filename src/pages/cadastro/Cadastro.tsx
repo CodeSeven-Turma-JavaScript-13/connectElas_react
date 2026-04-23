@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { api } from '../../services/Sercives';
 import { CodeIcon, UserPlusIcon } from '@phosphor-icons/react';
 import type { Candidata } from '../../models/Candidata';
+import { ToastAlerta } from '../../util/ToastAlerta';
 
 function Cadastro() {
   const navigate = useNavigate();
@@ -47,18 +48,19 @@ function Cadastro() {
     }
 
     if (candidata.senha.length < 8) {
-      alert('A senha deve ter no mínimo 8 caracteres.');
+      
+      ToastAlerta('A senha deve ter no mínimo 8 caracteres.', 'erro');
       return;
     }
 
     setIsLoading(true);
     try {
       await api.post('/candidatas', candidata);
-      alert('Conta criada com sucesso!');
+      ToastAlerta('Conta criada com sucesso!', 'sucesso');
       navigate('/login');
     } catch (error: any) {
       console.error('// erro_cadastro_candidata:', error.response?.data || error.message);
-      alert('Erro ao cadastrar. Verifique se o e-mail já está em uso.');
+      ToastAlerta('Erro ao cadastrar. Verifique se o e-mail já está em uso.', 'erro');
     } finally {
       setIsLoading(false);
     }

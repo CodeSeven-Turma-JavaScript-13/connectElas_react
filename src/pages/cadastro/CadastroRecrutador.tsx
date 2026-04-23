@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { cadastrarUsuario } from '../../services/Sercives';
 import { BriefcaseIcon, CodeIcon } from '@phosphor-icons/react';
 import type { Usuario } from '../../models/Usuario';
+import { ToastAlerta } from '../../util/ToastAlerta';
 
 function CadastroRecrutador() {
   const navigate = useNavigate();
@@ -57,13 +58,13 @@ function CadastroRecrutador() {
         const { dataCriacao, oportunidade, ...dadosCadastro } = usuario;
 
         await cadastrarUsuario(`/usuarios/cadastrar`, dadosCadastro, setUsuarioResult);
-        alert('Recrutador cadastrado com sucesso!');
+        ToastAlerta('Recrutador cadastrado com sucesso!', 'sucesso');
       } catch (error: any) {
         console.error('// erro_cadastro_recrutador:', error.response?.data || error.message);
-        alert('Erro ao cadastrar o Recrutador. Verifique se o e-mail já existe.');
+        ToastAlerta('Erro ao cadastrar o Recrutador. Verifique se o e-mail já existe.', 'erro');
       }
     } else {
-      alert('Dados inconsistentes. Verifique as informações e se a senha tem no mínimo 8 caracteres.');
+      ToastAlerta('Dados inconsistentes. Verifique as informações e se a senha tem no mínimo 8 caracteres.', 'erro');
       setConfirmarSenha('');
       setUsuario({ ...usuario, senha: '' });
     }

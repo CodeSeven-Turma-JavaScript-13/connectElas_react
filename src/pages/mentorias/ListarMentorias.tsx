@@ -5,6 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { buscar } from '../../services/Sercives';
 import { ArrowRightIcon, FunnelIcon, GithubLogoIcon, GraduationCapIcon, LinkedinLogoIcon, MagnifyingGlassIcon, SparkleIcon } from '@phosphor-icons/react';
 import type { Mentoria } from '../../models/Mentoria';
+import { ToastAlerta } from '../../util/ToastAlerta';
 
 function ListarMentorias() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ function ListarMentorias() {
 
   useEffect(() => {
     if (!estaLogado) {
-      alert('Você precisa estar logada para acessar a área de mentoria.');
+      ToastAlerta('Você precisa estar logada para acessar a área de mentoria.', 'info');
       navigate('/login');
     }
   }, [estaLogado, navigate]);
@@ -26,6 +27,7 @@ function ListarMentorias() {
         const tokenHeader = { headers: { Authorization: usuario.token } };
         await buscar('/mentorias', setMentorias, tokenHeader);
       } catch (error) {
+        ToastAlerta('Erro ao carregar mentorias', 'erro')
         console.error("Erro ao carregar mentorias", error);
         // Mock de dados se falhar
         setMentorias([
