@@ -3,12 +3,20 @@ import axios from 'axios';
 
 // Configuração da instância principal do Axios
 export const api = axios.create({
-  baseURL: '/api', 
+    baseURL: import.meta.env.VITE_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
+// Interceptor: adiciona o token em TODA requisição automaticamente
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`;
+  }
+  return config;
+});
 
 export const cadastrarUsuario = async (url: string, dados: object, setDados: Function) => {
   const resposta = await api.post(url, dados);
@@ -21,9 +29,8 @@ export const login = async (url: string, dados: object, setDados: Function) => {
     const resposta = await api.post(url, dados);
     setDados(resposta.data);
     
-    // Armazena o token se o backend retornar
-    if (resposta.data.token) {
-      api.defaults.headers.common['Authorization'] = resposta.data.token;
+     if (resposta.data.token) {
+      localStorage.setItem('token', resposta.data.token);
     }
     
     return true;
