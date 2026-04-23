@@ -16,6 +16,7 @@ localizacao: string;
 nivelExperiencia: string;
 beneficios: string;
 ativa: boolean;
+status: 'DISPONIVEL' | 'EM_ANDAMENTO' | 'INDISPONIVEL';
 dataCriacao: string;
 dataAtualizacao: string;
 candidata: Candidata[];
