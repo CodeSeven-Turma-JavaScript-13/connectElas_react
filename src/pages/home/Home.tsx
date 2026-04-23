@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { ArrowRightIcon, BriefcaseIcon, GraduationCapIcon, UsersIcon } from '@phosphor-icons/react';
 import { useEffect, useRef } from 'react';
+import { tsParticles } from "@tsparticles/engine";
+import { loadSlim } from "@tsparticles/slim";
 
 function Home() {
   const { estaLogado } = useAuth();
@@ -12,9 +14,7 @@ function Home() {
     let cancelled = false;
 
     async function init() {
-      // 1. Import dinâmico para reduzir o bundle size inicial
-      const { tsParticles } = await import('@tsparticles/engine');
-      const { loadSlim } = await import('@tsparticles/slim'); // Troquei loadAll por loadSlim
+ // Troquei loadAll por loadSlim
 
       if (cancelled) return;
 
@@ -87,8 +87,8 @@ function Home() {
       */}
       <div 
         ref={particlesRef} 
-        className="absolute inset-0 z-0 pointer-events-auto" 
-        style={{ width: '100%', height: '100%' }}
+        className="absolute inset-0 pointer-events-auto" 
+        style={{zIndex: 1, position: 'absolute', width: '100%', height: '100%' }}
       />
 
       {/* Background Decorativo - Aumentei o -z para garantir que fique atrás das partículas */}
