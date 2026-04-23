@@ -84,7 +84,7 @@ function Cadastro() {
             </div>
             <h2 className="text-3xl font-black tracking-tighter text-white uppercase italic">Criar Conta Dev</h2>
             <p className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.2em] mt-1">
-              // CONNECT_ELAS_V1.0.AUTH
+              // CONNECT_ELAS_V2.0.AUTH
             </p>
           </div>
 

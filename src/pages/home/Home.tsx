@@ -20,7 +20,7 @@ function Home() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fuchsia-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-fuchsia-500"></span>
             </span>
-            Versão 1.0 // Deploy de Carreira
+            Versão 2.0 // Deploy de Carreira
           </div>
 
           <h1 className="text-6xl font-black tracking-tight text-white sm:text-8xl leading-tight">

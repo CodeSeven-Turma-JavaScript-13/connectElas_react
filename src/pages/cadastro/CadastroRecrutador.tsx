@@ -92,7 +92,7 @@ function CadastroRecrutador() {
               Cadastrar Recrutador
             </h2>
             <p className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.2em] mt-1">
-              // CONNECT_ELAS_V1.0.RECRUITER
+              // CONNECT_ELAS_V2.0.RECRUITER
             </p>
           </div>
 
