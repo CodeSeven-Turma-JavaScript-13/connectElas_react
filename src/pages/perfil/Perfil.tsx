@@ -63,7 +63,6 @@ function Perfil() {
           nome: usuario.nome || "Desenvolvedora Connect",
           usuario: usuario.usuario,
           dataNascimento:"1995-01-01",
-          dataCriacao: new Date().toISOString(),
           oportunidade: ''
           // Usa a foto do contexto se a busca falhar
         }));
