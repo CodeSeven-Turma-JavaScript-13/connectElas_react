@@ -92,7 +92,7 @@ function Cadastro() {
 
             {/* BLOCO 01: Dados Pessoais */}
             <div>
-              <p className="text-[9px] font-mono text-slate-600 uppercase tracking-[0.25em] mb-4 flex items-center gap-2">
+              <p className="text-[14px] font-mono text-slate-600 uppercase tracking-[0.25em] mb-4 flex items-center gap-2">
                 <span className="text-violet-500">01</span> Dados Pessoais
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -134,7 +134,7 @@ function Cadastro() {
 
             {/* BLOCO 02: Perfil Profissional */}
             <div>
-              <p className="text-[9px] font-mono text-slate-600 uppercase tracking-[0.25em] mb-4 flex items-center gap-2">
+              <p className="text-[14px] font-mono text-slate-600 uppercase tracking-[0.25em] mb-4 flex items-center gap-2">
                 <span className="text-violet-500">02</span> Perfil Profissional
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -205,7 +205,7 @@ function Cadastro() {
 
             {/* BLOCO 03: Credenciais */}
             <div>
-              <p className="text-[9px] font-mono text-slate-600 uppercase tracking-[0.25em] mb-4 flex items-center gap-2">
+              <p className="text-[14px] font-mono text-slate-600 uppercase tracking-[0.25em] mb-4 flex items-center gap-2">
                 <span className="text-violet-500">03</span> Credenciais de Acesso
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -258,7 +258,7 @@ function Cadastro() {
           </div>
         </div>
 
-        <p className="text-center text-[10px] font-mono text-slate-600 uppercase tracking-widest mt-6">
+        <p className="text-center text-[13px] font-mono text-slate-600 uppercase tracking-widest mt-6">
           É recrutador?{' '}
           <button
             onClick={() => navigate('/cadastro-recrutador')}
