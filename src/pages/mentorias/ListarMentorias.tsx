@@ -13,6 +13,7 @@ function ListarMentorias() {
   
   const [mentorias, setMentorias] = useState<Mentoria[]>([]);
   const [carregando, setCarregando] = useState(true);
+  const [filtro, setFiltro] = useState("");
 
   useEffect(() => {
     if (!estaLogado) {
@@ -67,6 +68,10 @@ function ListarMentorias() {
     carregarMentorias();
   }, [usuario.token]);
 
+   const mentoriasFiltradas = mentorias.filter(op => 
+    op.nome.toLowerCase().includes(filtro.toLowerCase()) ||
+    op.especialidade.toLowerCase().includes(filtro.toLowerCase())
+  );
   return (
     <div className="min-h-screen bg-slate-950 pt-28 pb-12 px-4 relative overflow-hidden text-slate-300">
       
@@ -125,6 +130,8 @@ function ListarMentorias() {
                type="text" 
                placeholder="FILTRARPER_ESPECIALIDADE_OU_NOME..."
                className="w-full bg-slate-900/60 border border-white/5 rounded-2xl pl-16 pr-6 py-4 text-xs font-mono uppercase tracking-widest text-slate-400 focus:outline-none focus:border-violet-500/30 transition-all"
+               value={filtro}
+               onChange={(e) => setFiltro(e.target.value)}
              />
            </div>
            <div className="flex items-center gap-4 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
@@ -144,7 +151,7 @@ function ListarMentorias() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mentorias.map(mentora => (
+            {mentoriasFiltradas.map(mentora => (
               <div key={mentora.id} className="group relative bg-slate-900/40 backdrop-blur-3xl border border-white/5 rounded-[40px] p-8 hover:border-violet-500/30 transition-all overflow-hidden flex flex-col h-full shadow-lg">
                 <div className="flex items-start justify-between mb-8">
                   <div className="relative">
