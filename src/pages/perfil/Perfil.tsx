@@ -41,36 +41,39 @@ function Perfil() {
   }, [estaLogado, navigate]);
 
   useEffect(() => {
-    async function carregarDados() {
-      if (usuario.id !== 0) {
-        try {
-          // Busca perfil completo
-          await buscar(`/usuarios/${usuario.id}`, setPerfilCompleto, {
-            headers: { Authorization: usuario.token }
-          });
-          
-          // Busca candidaturas recentes
-          await buscar(`/oportunidades/usuario/${usuario.id}`, setCandidaturas, {
-            headers: { Authorization: usuario.token }
-          });
-        } catch (error) {
-          console.error("Erro ao carregar dados, usando fallback.", error);
-          setPerfilCompleto({
-            nome: "Desenvolvedora ConnectElas",
-            usuario: usuario.usuario,
-            senha: '',
-            foto: "https://i.imgur.com/8KpeS9w.png",
-            dataNascimento: "1995-01-01",
-            dataCriacao: new Date().toISOString(),
-            oportunidade: ''
-          });
-        } finally {
-          setIsLoading(false);
-        }
+  async function carregarDados() {
+    if (usuario.id !== 0) {
+      try {
+        // Busca perfil completo
+        await buscar(`/usuarios/${usuario.id}`, setPerfilCompleto, {
+          headers: { Authorization: usuario.token }
+        });
+        
+        // Busca candidaturas
+        await buscar(`/oportunidades/usuario/${usuario.id}`, setCandidaturas, {
+          headers: { Authorization: usuario.token }
+        });
+
+      } catch (error) {
+        console.error("Erro ao carregar dados.", error);
+        // Em vez de criar um objeto novo com foto fixa, 
+        // apenas garantimos que o nome e usuario venham do AuthContext
+        setPerfilCompleto(prev => ({
+          ...prev,
+          nome: usuario.nome || "Desenvolvedora Connect",
+          usuario: usuario.usuario,
+          dataNascimento:"1995-01-01",
+          dataCriacao: new Date().toISOString(),
+          oportunidade: ''
+          // Usa a foto do contexto se a busca falhar
+        }));
+      } finally {
+        setIsLoading(false);
       }
     }
-    carregarDados();
-  }, [usuario]);
+  }
+  carregarDados();
+}, [usuario]);
 
   if (isLoading) {
     return (
@@ -99,7 +102,7 @@ function Perfil() {
               <div className="relative group">
                 <div className="absolute inset-0 bg-linear-to-tr from-fuchsia-500 to-violet-500 rounded-full blur-md opacity-40 group-hover:opacity-100 transition-opacity"></div>
                 <img 
-                  src={perfilCompleto.foto || "https://i.imgur.com/8KpeS9w.png"} 
+                  src={perfilCompleto.foto || "https://ik.imagekit.io/Outwake/2606518_5857484(1).jpg"} 
                   className="h-40 w-40 rounded-full border-4 border-slate-950 relative object-cover bg-slate-800"
                   alt="Avatar"
                 />
