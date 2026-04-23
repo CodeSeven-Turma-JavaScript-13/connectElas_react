@@ -52,6 +52,7 @@ function MinhasCandidaturas() {
             nivelExperiencia: "Junior",
             beneficios: "VR, VA, Seguro de Vida",
             ativa: true,
+            status: "DISPONIVEL",
             dataCriacao: new Date().toISOString(),
             dataAtualizacao: new Date().toISOString(),
             candidata: [],
