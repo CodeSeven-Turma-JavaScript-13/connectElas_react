@@ -58,6 +58,10 @@ export const atualizar = async (url: string, dados: object, setDados: Function, 
   setDados(resposta.data);
 };
 
+export const atualizarParcial = async (url: string, dados: object, setDados: Function, header: object) => {
+  const resposta = await api.patch(url, dados, header);
+  setDados(resposta.data);
+};
 
 export const deletar = async (url: string, header: object) => {
   await api.delete(url, header);
