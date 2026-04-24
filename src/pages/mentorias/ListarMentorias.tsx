@@ -97,7 +97,7 @@ function ListarMentorias() {
               Mentoras de <span className="bg-linear-to-r pr-5 pl-1 from-violet-400 to-cyan-400 bg-clip-text text-transparent">Alta Performance</span>
             </h1>
             <p className="text-slate-400 text-sm leading-relaxed max-w-lg mb-8">
-              Encontre o guia certo para sua carreira. Nossas mentoras são líderes do mercado prontas para compartilhar experiências reais e técnicas.
+              Encontre o guia certo para sua carreira. Nossos mentores são líderes do mercado prontas para compartilhar experiências reais e técnicas.
             </p>
             <div className="flex items-center gap-6">
                <div className="flex -space-x-4">
@@ -115,7 +115,7 @@ function ListarMentorias() {
                  <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4">Seja uma Mentora</h4>
                  <p className="text-[10px] text-slate-500 leading-relaxed uppercase tracking-tighter mb-6">Compartilhe seu brilho e ajude a formar as próximas líderes tech.</p>
                  <button className="w-full bg-white text-slate-950 px-6 py-4 rounded-2xl font-black uppercase tracking-tighter text-xs hover:bg-violet-500 hover:text-white transition-all active:scale-95">
-                   Inscrição Mentora
+                   Inscrição para Mentoria
                  </button>
               </div>
            </div>
