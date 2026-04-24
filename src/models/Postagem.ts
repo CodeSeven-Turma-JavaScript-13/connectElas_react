@@ -1,5 +1,6 @@
-import { Tema } from './Tema';
-import { Usuario } from './Usuario';
+import type { Tema } from "./Tema";
+import type { Usuario } from "./Usuario";
+
 
 export interface Postagem {
   id: number;
