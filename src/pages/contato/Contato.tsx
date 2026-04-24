@@ -20,7 +20,7 @@ function Contato() {
           </h1>
           <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.4em] flex items-center justify-center gap-2">
             <TerminalIcon size={14} className="text-violet-400" />
-            // establish_secure_connection.v1
+            // establish_secure_connection.v2
           </p>
         </div>
 
@@ -39,7 +39,7 @@ function Contato() {
                   </div>
                   <div>
                     <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest block mb-1">E-mail</span>
-                    <p className="text-slate-200 font-mono text-sm group cursor-pointer hover:text-violet-400 transition-colors">contato@connectelas.dev</p>
+                    <p className="text-slate-200 font-mono text-sm group cursor-pointer hover:text-violet-400 transition-colors">codeseven777@hotmail.com</p>
                   </div>
                 </div>
 
@@ -49,7 +49,7 @@ function Contato() {
                   </div>
                   <div>
                     <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest block mb-1">Terminal</span>
-                    <p className="text-slate-200 font-mono text-sm">+55 (11) 98765-4321</p>
+                    <p className="text-slate-200 font-mono text-sm">+55 (21) 99857-7111</p>
                   </div>
                 </div>
 
@@ -59,14 +59,14 @@ function Contato() {
                   </div>
                   <div>
                     <span className="text-[10px] font-black text-slate-600 uppercase tracking-widest block mb-1">Localização</span>
-                    <p className="text-slate-200 font-mono text-sm leading-relaxed">Polo de Inovação Digital<br />São Paulo, Brasil</p>
+                    <p className="text-slate-200 font-mono text-sm leading-relaxed">Rio de Janeiro, Brasil</p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-16 flex gap-4">
                 <a href="#" className="p-3 rounded-xl bg-slate-950 border border-white/5 text-slate-500 hover:text-violet-400 hover:border-violet-500/30 transition-all"><LinkedinLogoIcon size={20} /></a>
-                <a href="#" className="p-3 rounded-xl bg-slate-950 border border-white/5 text-slate-500 hover:text-white hover:border-white/20 transition-all"><GithubLogoIcon size={20} /></a>
+                <a href="https://github.com/CodeSeven-Turma-JavaScript-13" target='_blank' className="p-3 rounded-xl bg-slate-950 border border-white/5 text-slate-500 hover:text-white hover:border-white/20 transition-all"><GithubLogoIcon size={20} /></a>
                 <a href="#" className="p-3 rounded-xl bg-slate-950 border border-white/5 text-slate-500 hover:text-fuchsia-400 hover:border-fuchsia-500/30 transition-all"><InstagramLogoIcon size={20} /></a>
               </div>
             </div>
