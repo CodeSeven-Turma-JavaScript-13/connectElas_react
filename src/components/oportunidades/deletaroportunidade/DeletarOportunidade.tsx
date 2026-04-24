@@ -33,7 +33,7 @@ function DeletarOportunidade() {
         headers: { Authorization: usuario.token }
       });
     } catch (error) {
-      ToastAlerta("Erro ao buscar vaga!", "erro")
+      
       console.error("Erro ao buscar vaga", error);
     } finally {
       setCarregando(false);

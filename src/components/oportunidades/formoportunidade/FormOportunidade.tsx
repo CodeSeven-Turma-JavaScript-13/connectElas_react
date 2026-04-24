@@ -57,11 +57,11 @@ function FormOportunidade() {
 
   async function buscarVaga(id: string) {
     try {
-      await buscar(`/oportunidades/${id}`, setOportunidade, {
+      await buscar(`/oportunidades/id/${id}`, setOportunidade, {
         headers: { Authorization: usuario.token }
       });
     } catch (error) {
-      ToastAlerta("Erro ao buscar vaga!", "erro")
+
       console.error("Erro ao buscar vaga", error);
     }
   }
@@ -87,13 +87,13 @@ function FormOportunidade() {
   await atualizarParcial(`/oportunidades/${id}`, camposAlterados, setOportunidade, tokenHeader);
   ToastAlerta('Vaga atualizada com sucesso!', 'sucesso');
   } else {
+      const { id: _, ...oportunidadeSemId } = oportunidade;
       await cadastrar(`/oportunidades`, oportunidade, setOportunidade, tokenHeader);
       ToastAlerta('Vaga anunciada com sucesso!', 'sucesso');
     }
     navigate('/oportunidades');
   } catch (error) {
     console.error("Erro ao processar vaga", error);
-    ToastAlerta('Ocorreu um erro ao salvar a vaga.', 'erro');
   } finally {
     setCarregando(false);
   }
@@ -159,15 +159,25 @@ function FormOportunidade() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Área</label>
-                <input
-                  type="text"
+                <select
                   name="area"
-                  
-                  placeholder="Ex: Front-end"
-                  className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-4 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm"
+                  className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-4 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm appearance-none"
                   value={oportunidade.area}
                   onChange={atualizarEstado}
-                />
+                >
+                  <option value="" disabled>Selecione...</option>
+                  <option value="Frontend">Frontend</option>
+                  <option value="Backend">Backend</option>
+                  <option value="Fullstack">Fullstack</option>
+                  <option value="Mobile">Mobile</option>
+                  <option value="DevOps">DevOps</option>
+                  <option value="Data Science">Data Science</option>
+                  <option value="UX/UI Design">UX/UI Design</option>
+                  <option value="QA / Testes">QA / Testes</option>
+                  <option value="Produto">Produto</option>
+                  <option value="Segurança">Segurança</option>
+                  <option value="Outro">Outro</option>
+                </select>
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Modalidade</label>
@@ -184,15 +194,37 @@ function FormOportunidade() {
                 </select>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Nível</label>
-                <input
-                  type="text"
+                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Nível de Experiencia</label>
+                <select
                   name="nivelExperiencia"
-                  placeholder="Ex: Pleno / Sênior"
-                  className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-4 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm"
+                  className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-4 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm appearance-none"
                   value={oportunidade.nivelExperiencia}
                   onChange={atualizarEstado}
-                />
+                >
+                    <option value="" disabled>Selecione...</option>
+                    <option value="Estágio">Estágio</option>
+                    <option value="Trainee">Trainee</option>
+                    <option value="Júnior">Júnior</option>
+                    <option value="Pleno">Pleno</option>
+                    <option value="Sênior">Sênior</option>
+                    <option value="Liderança">Liderança</option>
+           
+                </select>
+              </div>
+              {/* Tipo de Contrato */}
+              <div className="space-y-2">
+                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Tipo de Contrato</label>
+                <select
+                  name="tipoContrato"
+                  className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-4 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm appearance-none"
+                  value={oportunidade.tipoContrato}
+                  onChange={atualizarEstado}
+                >
+                  <option value="">Selecione...</option>
+                  <option value="CLT">CLT</option>
+                  <option value="PJ">PJ</option>
+                  <option value="Freelance">Freelance</option>
+                </select>
               </div>
 
               
@@ -258,6 +290,18 @@ function FormOportunidade() {
                 onChange={atualizarEstado}
               />
             </div>
+            {/* Benefícios */}
+          <div className="space-y-2">
+            <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Benefícios</label>
+            <input
+              type="text"
+              name="beneficios"
+              placeholder="Ex: Vale refeição, Plano de saúde, Home office"
+              className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-4 py-4 text-slate-200 focus:outline-none focus:border-fuchsia-500/50 transition-all font-mono text-sm"
+              value={oportunidade.beneficios}
+              onChange={atualizarEstado}
+            />
+          </div>
 
             {/* Botões */}
             <div className="flex flex-col md:flex-row gap-4 pt-8">
