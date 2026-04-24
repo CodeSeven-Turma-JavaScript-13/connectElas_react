@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChatCircleTextIcon } from "@phosphor-icons/react";
 import Contato from "../../pages/contato/Contato";
- // ajuste o caminho se necessário
+
 
 function FloatingChat() {
 
@@ -32,7 +32,7 @@ function FloatingChat() {
         />
       )}
 
-      {/* 🔥 BOTÃO FLUTUANTE */}
+      {/* BOTÃO FLUTUANTE */}
       {!open && (
         <button
           onClick={() => setOpen(true)}
