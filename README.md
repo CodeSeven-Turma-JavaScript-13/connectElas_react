@@ -3,8 +3,8 @@
 O **Connectelas** é uma plataforma web que conecta mulheres ao universo da tecnologia, promovendo inclusão, aprendizado e oportunidades na área tech. A aplicação centraliza conteúdos, conexões e suporte, oferecendo uma experiência intuitiva e moderna para usuárias em diferentes níveis de conhecimento.
 
 
-<!-- <div align="center"> <img src="https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/download.png" width="20%"/> 
-</div> -->
+<div align="center"> <img src="https://ik.imagekit.io/majulial/connect/logoconnectElas.png.png" width="70%"/> 
+</div>
 
 ## 🚀 Funcionalidades
 
@@ -23,13 +23,13 @@ O **Connectelas** é uma plataforma web que conecta mulheres ao universo da tecn
 
 
 ## 📌 Home
-<!-- <div align="center"> <img src="https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/Captura%20de%20tela%202026-04-17%20182805.png" width="100%"/> </div> -->
+<div align="center"> <img src="https://ik.imagekit.io/majulial/connect/Captura%20de%20tela%202026-04-24%20015957.png" width="100%"/> </div>
 
 
 
-## 📌 Contato (Modal Interativo)
+## 📌 Vagas
 
-<!-- <div align="center"> <img src="https://ik.imagekit.io/o02kjfcyy/Integrantes%20Code7/image%20(2).png" width="100%"/> </div> -->
+<div align="center"> <img src="https://ik.imagekit.io/majulial/connect/Captura%20de%20tela%202026-04-24%20020345.png" width="100%"/> </div>
 ---
 
 ## 🛠️ Tecnologias Utilizadas
@@ -111,7 +111,7 @@ O Connectelas tem como objetivo promover a inclusão feminina na tecnologia, ofe
 * Ana Beatriz Carvalho
 * Daniella Camillo
 * João Pedro
-* Júlia Lima
+* Júlia de Lima
 * Larissa Mendonça
 * Lucas Ribeiro
 * Matheus Tiago Canellas
