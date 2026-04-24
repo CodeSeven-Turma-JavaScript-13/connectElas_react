@@ -16,7 +16,7 @@ import DeletarOportunidade from './components/oportunidades/deletaroportunidade/
 import { AuthProvider } from './contexts/AuthContext'
 import ListarMentorias from './pages/mentorias/ListarMentorias'
 import SobreNos from './pages/sobre/SobreNos'
-import Contato from './pages/contato/Contato'
+import Contato from './pages/contato/Contato1'
 import FormPostagem from './components/comunidade/postagem/formpostagem/FormPostagem'
 import ListarTemas from './components/comunidade/tema/listartemas/ListarTemas'
 import FormTema from './components/comunidade/tema/formtema/FormTema'
@@ -26,6 +26,7 @@ import DetalhesOportunidade from './components/oportunidades/detalhesoportunidad
 import CadastroRecrutador from './pages/cadastro/CadastroRecrutador'
 import Comunidade from './pages/comunidade/Comunidade'
 import { ToastContainer } from 'react-toastify'
+import FloatingChat from './components/chat/FloatingChat'
 
 function App() {
  
@@ -70,6 +71,7 @@ function App() {
             <Route path="/sobre" element={<SobreNos />} />
             <Route path="/contato" element={<Contato />} />
           </Routes>
+            <FloatingChat />
           <Footer />
         </div>
       </BrowserRouter>
