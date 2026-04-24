@@ -131,7 +131,7 @@ function Login() {
                 onClick={() => navigate('/cadastro')}
                 className="text-fuchsia-500 font-black text-[11px] hover:text-fuchsia-400 transition-colors ml-1"
               >
-                REGISTRAR_DEV
+                REGISTRAR_USUARIA
               </button>
               <span className="text-slate-700 font-mono text-xs"> |</span>
 

@@ -94,7 +94,7 @@ function ListarMentorias() {
                Acelere seu Conhecimento
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-white italic tracking-tighter uppercase leading-[0.9] mb-6">
-              Mentoras de <span className="bg-linear-to-r pr-5 pl-1 from-violet-400 to-cyan-400 bg-clip-text text-transparent">Alta Performance</span>
+              Mentorias de <span className="bg-linear-to-r pr-5 pl-1 from-violet-400 to-cyan-400 bg-clip-text text-transparent">Alta Performance</span>
             </h1>
             <p className="text-slate-400 text-sm leading-relaxed max-w-lg mb-8">
               Encontre o guia certo para sua carreira. Nossos mentores são líderes do mercado prontas para compartilhar experiências reais e técnicas.
@@ -102,17 +102,17 @@ function ListarMentorias() {
             <div className="flex items-center gap-6">
                <div className="flex -space-x-4">
                   {[1,2,3,4].map(i => (
-                    <img key={i} src={`https://i.pravatar.cc/100?img=${i+10}`} className="h-10 w-10 rounded-full border-2 border-slate-900" />
+                    <img key={i} src={`https://i.pravatar.cc/100?img=${i+24}`} className="h-10 w-10 rounded-full border-2 border-slate-900" />
                   ))}
                </div>
-               <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">+50 Mentoras Ativas</span>
+               <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">+50 Mentorias Ativas</span>
             </div>
            </div>
 
            <div className="relative group">
               <div className="absolute inset-0 bg-violet-600 opacity-20 blur-[60px] group-hover:opacity-40 transition-opacity"></div>
               <div className="relative bg-slate-950 border border-white/10 p-8 rounded-4xl w-full lg:w-80 shadow-2xl">
-                 <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4">Seja uma Mentora</h4>
+                 <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4">Faça parte da Mentoria</h4>
                  <p className="text-[10px] text-slate-500 leading-relaxed uppercase tracking-tighter mb-6">Compartilhe seu brilho e ajude a formar as próximas líderes tech.</p>
                  <button className="w-full bg-white text-slate-950 px-6 py-4 rounded-2xl font-black uppercase tracking-tighter text-xs hover:bg-violet-500 hover:text-white transition-all active:scale-95">
                    Inscrição para Mentoria
