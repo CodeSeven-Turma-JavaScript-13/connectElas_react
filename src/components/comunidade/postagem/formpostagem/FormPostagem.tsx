@@ -107,7 +107,7 @@ function FormPostagem() {
                {id !== undefined ? 'Editar Discussão' : 'Iniciar Novo Diálogo'}
             </h1>
             <p className="text-slate-500 font-mono text-[9px] uppercase tracking-[0.3em]">
-               // open_channel.social_v1
+               // open_channel.social_v2
             </p>
           </header>
 

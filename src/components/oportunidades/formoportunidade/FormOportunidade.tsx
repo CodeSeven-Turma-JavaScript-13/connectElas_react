@@ -115,7 +115,7 @@ function FormOportunidade() {
               <PlusCircleIcon size={36} weight="bold" />
             </div>
             <h1 className="text-4xl font-black text-white uppercase italic tracking-tighter">
-              {id !== undefined ? 'Editar Oportunidade' : 'Anunciar Nova Vida Tech'}
+              {id !== undefined ? 'Editar Oportunidade' : 'Anunciar Nova Vaga Tech'}
             </h1>
             <p className="text-slate-500 font-mono text-[10px] mt-2 uppercase tracking-[0.3em]">
                // open_job_protocol.v2
