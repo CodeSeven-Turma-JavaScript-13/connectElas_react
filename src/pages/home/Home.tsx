@@ -92,7 +92,7 @@ function Home() {
       />
 
       {/* Background Decorativo - Aumentei o -z para garantir que fique atrás das partículas */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-fuchsia-600/10 rounded-full blur-[120px] -z-20"></div>
+      <div className="absolute top-0 left-1/4 w-125 h-125 bg-fuchsia-600/10 rounded-full blur-[120px] -z-20"></div>
       
       {/* Hero Section - Z-10 para ficar na frente das partículas */}
       <section className="relative z-10 pt-32 pb-20 px-4">
