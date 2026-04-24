@@ -8,7 +8,6 @@ function FloatingChat() {
   // controla abrir/fechar o formulário
   const [open, setOpen] = useState(false);
 
-  const [showHint, setShowHint] = useState(true);
 
   return (
     <>
