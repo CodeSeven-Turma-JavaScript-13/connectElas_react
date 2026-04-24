@@ -26,6 +26,10 @@ import ListarOportunidades from './components/oportunidades/listaroportunidades/
 import DetalhesOportunidade from './components/oportunidades/detalhesoportunidade/DetalhesOportunidade'
 import FloatingChat from './components/chat/FloatingChat'
 
+import 'react-toastify/dist/ReactToastify.css'
+
+
+
 
 
 
