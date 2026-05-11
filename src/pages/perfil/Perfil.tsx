@@ -101,13 +101,13 @@ function Perfil() {
               <div className="relative group">
                 <div className="absolute inset-0 bg-linear-to-tr from-fuchsia-500 to-violet-500 rounded-full blur-md opacity-40 group-hover:opacity-100 transition-opacity"></div>
                 <img 
-                  src={perfilCompleto.foto || "https://ik.imagekit.io/Outwake/2606518_5857484(1).jpg"} 
+                  src={perfilCompleto?.foto || "https://ik.imagekit.io/Outwake/2606518_5857484(1).jpg"} 
                   className="h-40 w-40 rounded-full border-4 border-slate-950 relative object-cover bg-slate-800"
                   alt="Avatar"
                 />
               </div>
               <div className="flex-1 pb-2 text-center md:text-left">
-                <h1 className="text-4xl font-black text-white tracking-tighter uppercase italic">{perfilCompleto.nome}</h1>
+                <h1 className="text-4xl font-black text-white tracking-tighter uppercase italic">{perfilCompleto?.nome || usuario?.nome || "Dev"}</h1>
                 <p className="text-fuchsia-400 font-mono text-sm font-bold uppercase tracking-widest mt-1">Full Stack Developer // Level 1</p>
               </div>
               <div className="flex gap-3 pb-2 w-full md:w-auto">
@@ -130,12 +130,12 @@ function Perfil() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-slate-950/40 p-4 rounded-2xl border border-white/5 flex items-center gap-4">
                     <EnvelopeSimpleIcon size={24} className="text-violet-500" />
-                    <div><p className="text-[9px] text-slate-500 uppercase font-black">Email</p><p className="text-sm text-slate-200">{perfilCompleto.usuario}</p></div>
+                    <div><p className="text-[9px] text-slate-500 uppercase font-black">Email</p><p className="text-sm text-slate-200">{perfilCompleto?.usuario || usuario?.usuario || "—"}</p></div>
                   </div>
                   <div className="bg-slate-950/40 p-4 rounded-2xl border border-white/5 flex items-center gap-4">
                     <CalendarIcon size={24} className="text-violet-500" />
                     <div><p className="text-sm text-slate-200">
-                                      {perfilCompleto.dataCriacao
+                                      {perfilCompleto?.dataCriacao
                                       ? new Date(perfilCompleto.dataCriacao).toLocaleDateString('pt-BR')
                                       : '—'}
                           </p>
@@ -180,16 +180,16 @@ function Perfil() {
           </div>
 
           <div className="space-y-3">
-            {candidaturas.length > 0 ? (
+            {Array.isArray(candidaturas) && candidaturas.length > 0 ? (
               candidaturas.slice(0, 3).map(c => (
-                <div key={c.id} className="bg-slate-950/60 border border-white/5 p-5 rounded-2xl flex justify-between items-center hover:border-violet-500/30 transition-colors group">
+                <div key={c?.id} className="bg-slate-950/60 border border-white/5 p-5 rounded-2xl flex justify-between items-center hover:border-violet-500/30 transition-colors group">
                   <div className="flex items-center gap-4">
                     <div className="h-10 w-10 bg-violet-600/10 rounded-xl flex items-center justify-center text-violet-400 border border-violet-500/10">
                       <CodeIcon size={20} weight="bold" />
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-white uppercase tracking-tight group-hover:text-violet-400 transition-colors">{c.titulo}</p>
-                      <p className="text-[10px] text-slate-500 uppercase font-mono tracking-widest">{c.empresa}</p>
+                      <p className="text-sm font-bold text-white uppercase tracking-tight group-hover:text-violet-400 transition-colors">{c?.titulo || "Oportunidade"}</p>
+                      <p className="text-[10px] text-slate-500 uppercase font-mono tracking-widest">{c?.empresa || "—"}</p>
                     </div>
                   </div>
                   <span className="text-[9px] font-black text-green-400 bg-green-500/5 px-3 py-1 rounded-full border border-green-500/20 uppercase">
