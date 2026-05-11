@@ -56,7 +56,7 @@ function ListarMentorias() {
              nome: "Vitória Hardt",
              especialidade: "Empregabilidade & Carreira",
              bio: "Mentora de Empregabilidade: Humanizando processos seletivos e destravando carreiras.",
-             foto: "https://media.licdn.com/dms/image/v2/D4D03AQHDp4j1URIfBA/profile-displayphoto-scale_400_400/B4DZzKo_2rHYAg-/0/1772926272942?e=1778716800&v=beta&t=bvS4FLmuCzIVPwF2S-aizbq0ubNY43vacyeL6bCXydQ",
+             foto: "https://media.licdn.com/dms/image/v2/D4D03AQFZ4oFX2-jqYA/profile-displayphoto-scale_400_400/B4DZ3gWp1kKAAg-/0/1777585529426?e=1779926400&v=beta&t=rZv5bPLyJy5WbYDHy3sbnbJeEDNq0M6kuxohvh0RvAo",
              linkedin: "https://www.linkedin.com/in/vithardt/",
              disponivel: false
           }
