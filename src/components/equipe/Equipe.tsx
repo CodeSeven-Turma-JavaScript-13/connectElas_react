@@ -8,7 +8,7 @@ const Equipe: React.FC = () => {
       nome: "Julia Lima",
       funcao: "Scrum Master",
       foto: "https://ik.imagekit.io/xhkoeth0m/imagens%20integrantes/WhatsApp_Image_2026-03-06_at_13.24.23-removebg-preview-removebg-preview2.png?updatedAt=1778526915180",
-      link: "https://www.linkedin.com/in/juliadlima/"
+      link: "https://majulial.github.io/portfolio/"
     },
     {
       nome: "Ana Beatriz",
@@ -26,13 +26,13 @@ const Equipe: React.FC = () => {
       nome: "Daniella Camilo",
       funcao: "Dev",
       foto: "https://ik.imagekit.io/xhkoeth0m/imagens%20integrantes/Daniella_Camilo_6-removebg-preview-removebg-preview.jpg?updatedAt=1778526957584",
-      link: "https://www.linkedin.com/in/daniella-camilo-3b64b0393/"
+      link: "https://daniellacamilo.github.io/portfolio_tjs13/"
     },
     {
       nome: "Lucas Jesus",
       funcao: "Dev",
       foto: "https://ik.imagekit.io/xhkoeth0m/imagens%20integrantes/Lucas_Jesus_4-removebg-preview-removebg-preview.jpg?updatedAt=1778526915234",
-      link: "https://www.linkedin.com/in/lucas-jesus-972a8128a/"
+      link: "https://lucasrjesus.github.io/portfolio_lrj/"
     },
     {
       nome: "Matheus Canellas",
@@ -44,7 +44,7 @@ const Equipe: React.FC = () => {
       nome: "João Pedro",
       funcao: "Dev",
       foto: "https://ik.imagekit.io/xhkoeth0m/imagens%20integrantes/Joao_Pedro_5-removebg-preview-removebg-preview.jpg?updatedAt=1778526932962",
-      link: "https://www.linkedin.com/in/joão-pedro-oliveira-95b003255/"
+      link: "https://pedro-gomes2.github.io/Portifolio/"
     }
   ];
 
@@ -70,7 +70,7 @@ const Equipe: React.FC = () => {
         {/* Grid de Membros - Centralizado */}
         <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-16">
           {membros.map((membro, index) => (
-            <div key={index} className="w-full max-w-[280px] sm:max-w-none sm:w-64 lg:w-60 flex justify-center">
+            <div key={index} className="w-full max-w-70 sm:max-w-none sm:w-64 lg:w-60 flex justify-center">
               <CardMembro 
                 nome={membro.nome}
                 funcao={membro.funcao}
