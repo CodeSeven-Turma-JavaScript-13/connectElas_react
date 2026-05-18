@@ -52,7 +52,7 @@ function SobreNos() {
           </div>
           <div className="relative group order-1 lg:order-2">
              <div className="absolute -inset-1 bg-linear-to-r from-fuchsia-600 to-violet-600 rounded-[30px] md:rounded-[40px] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-             <div className="relative bg-slate-900 border border-white/5 rounded-[30px] md:rounded-[40px] p-8 md:p-12 overflow-hidden flex items-center justify-center min-h-[300px] md:min-h-100">
+             <div className="relative bg-slate-900 border border-white/5 rounded-[30px] md:rounded-[40px] p-8 md:p-12 overflow-hidden flex items-center justify-center min-h-75 md:min-h-100">
                 <GlobeIcon size={100} weight="thin" className="text-fuchsia-500/20 animate-[spin_20s_linear_infinite]" />
                 <div className="absolute inset-x-0 bottom-8 md:bottom-12 text-center">
                    <div className="text-4xl md:text-5xl font-black text-white italic">+10k</div>
@@ -83,7 +83,7 @@ function SobreNos() {
         {/* Chamada para Ação */}
         <div className="mt-16 md:mt-24 bg-linear-to-br from-violet-600 to-fuchsia-700 rounded-[30px] md:rounded-[50px] p-8 md:p-24 text-center relative overflow-hidden">
            <div className="absolute top-0 right-0 p-8 md:p-12 opacity-10">
-              <AppWindowIcon className="w-32 h-32 md:w-[200px] md:h-[200px]" />
+              <AppWindowIcon className="w-32 h-32 md:w-50 md:h-50" />
            </div>
            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter mb-8 leading-tight">
              Faça parte da nossa história.<br />
