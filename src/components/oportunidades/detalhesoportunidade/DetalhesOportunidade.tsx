@@ -11,7 +11,8 @@ import {
   CurrencyDollarIcon,
   InfoIcon,
   MapPinIcon,
-  RocketLaunchIcon
+  RocketLaunchIcon,
+  PencilIcon
 } from '@phosphor-icons/react';
 import { useAuth } from '../../../contexts/AuthContext';
 import type { Oportunidade } from '../../../models/Oportunidade';
@@ -173,17 +174,33 @@ function DetalhesOportunidade() {
                 <div className="text-2xl font-black text-white italic tracking-tighter uppercase mb-4">Interessada?</div>
               </div>
               
-              <button 
-                onClick={() => navigate(`/oportunidades/${id}/candidatar`)}
-                className="w-full flex items-center justify-center gap-3 bg-white text-slate-950 px-6 py-5 rounded-2xl font-black uppercase tracking-tighter hover:bg-fuchsia-500 hover:text-white hover:shadow-[0_0_30px_rgba(217,70,239,0.4)] transition-all active:scale-95 mb-4"
-              >
-                <RocketLaunchIcon size={24} weight="bold" />
-                Candidatar-se
-              </button>
-              
-              <p className="text-[9px] text-slate-600 text-center font-mono uppercase tracking-widest leading-relaxed">
-                Ao clicar em candidatar-se, seus dados de perfil serão compartilhados com a empresa {oportunidade.empresa}.
-              </p>
+              {usuario.tipo?.toLowerCase() === 'candidata' ? (
+                <>
+                  <button 
+                    onClick={() => navigate(`/oportunidades/${id}/candidatar`)}
+                    className="w-full flex items-center justify-center gap-3 bg-white text-slate-950 px-6 py-5 rounded-2xl font-black uppercase tracking-tighter hover:bg-fuchsia-500 hover:text-white hover:shadow-[0_0_30px_rgba(217,70,239,0.4)] transition-all active:scale-95 mb-4"
+                  >
+                    <RocketLaunchIcon size={24} weight="bold" />
+                    Candidatar-se
+                  </button>
+                  <p className="text-[9px] text-slate-600 text-center font-mono uppercase tracking-widest leading-relaxed">
+                    Ao clicar em candidatar-se, seus dados de perfil serão compartilhados com a empresa {oportunidade.empresa}.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <button 
+                    onClick={() => navigate(`/editar-vaga/${id}`)}
+                    className="w-full flex items-center justify-center gap-3 bg-white text-slate-950 px-6 py-5 rounded-2xl font-black uppercase tracking-tighter hover:bg-fuchsia-500 hover:text-white hover:shadow-[0_0_30px_rgba(217,70,239,0.4)] transition-all active:scale-95 mb-4"
+                  >
+                    <PencilIcon size={24} weight="bold" />
+                    Editar Vaga
+                  </button>
+                  <p className="text-[9px] text-slate-600 text-center font-mono uppercase tracking-widest leading-relaxed">
+                    Você pode editar as informações desta vaga para mantê-la atualizada.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="bg-violet-600/10 border border-violet-500/20 p-6 rounded-3xl">

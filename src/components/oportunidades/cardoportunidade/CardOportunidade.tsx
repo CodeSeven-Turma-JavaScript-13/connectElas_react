@@ -94,9 +94,9 @@ function CardOportunidade({ oportunidade }: CardOportunidadeProps) {
           <div className="flex flex-col items-end gap-3 relative">
             {/* Badge de Status Interativo */}
             <button 
-              disabled={carregando}
+              disabled={carregando || usuario.tipo?.toLowerCase() !== 'recruiter'}
               onClick={() => setMenuAberto(!menuAberto)}
-              className={`flex items-center gap-2 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border transition-all hover:brightness-125 ${status.badge} ${carregando ? 'animate-pulse' : ''}`}
+              className={`flex items-center gap-2 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border transition-all hover:brightness-125 ${status.badge} ${carregando ? 'animate-pulse' : ''} ${usuario.tipo?.toLowerCase() !== 'recruiter' ? 'cursor-default hover:brightness-100' : ''}`}
             >
               {status.label}
              
@@ -117,22 +117,24 @@ function CardOportunidade({ oportunidade }: CardOportunidadeProps) {
               </div>
             )}
 
-            <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity relative z-20">
-              <Link
-                to={`/editar-vaga/${oportunidade.id}`}
-                className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 hover:scale-110 transition-all"
-                title="Editar Vaga"
-              >
-                <PencilIcon size={16} weight="bold" />
-              </Link>
-              <Link
-                to={`/deletar-vaga/${oportunidade.id}`}
-                className="p-2 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500/20 hover:scale-110 transition-all"
-                title="Deletar Vaga"
-              >
-                <TrashIcon size={16} weight="bold" />
-              </Link>
-            </div>
+            {usuario.tipo?.toLowerCase() === 'recruiter' && (
+              <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity relative z-20">
+                <Link
+                  to={`/editar-vaga/${oportunidade.id}`}
+                  className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 hover:scale-110 transition-all"
+                  title="Editar Vaga"
+                >
+                  <PencilIcon size={16} weight="bold" />
+                </Link>
+                <Link
+                  to={`/deletar-vaga/${oportunidade.id}`}
+                  className="p-2 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500/20 hover:scale-110 transition-all"
+                  title="Deletar Vaga"
+                >
+                  <TrashIcon size={16} weight="bold" />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 
