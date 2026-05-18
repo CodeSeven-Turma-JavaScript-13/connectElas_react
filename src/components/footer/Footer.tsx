@@ -1,4 +1,4 @@
-import { GithubLogoIcon, LinkedinLogoIcon, BookOpenIcon, UsersIcon, GlobeIcon, EnvelopeIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon, LinkedinLogoIcon, BookOpenIcon, UsersIcon, GlobeIcon, EnvelopeIcon, BriefcaseIcon, SignInIcon, GraduationCapIcon } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -30,7 +30,10 @@ function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li><Link to="/perfil" className="hover:text-white transition-colors flex items-center gap-2"><UsersIcon size={16} /> Meu Perfil</Link></li>
               <li><Link to="/oportunidades" className="hover:text-white transition-colors flex items-center gap-2"><GlobeIcon size={16} /> Oportunidades</Link></li>
-              <li><Link to="/perfil/candidaturas" className="hover:text-white transition-colors flex items-center gap-2">📄 Minhas Candidaturas</Link></li>
+              <li><Link to="/mentorias" className="hover:text-white transition-colors flex items-center gap-2"><GraduationCapIcon size={18} /> Mentorias</Link></li>
+              <li><Link to="/sobre" className="hover:text-white transition-colors flex items-center gap-2"> <BookOpenIcon size={16}/> Sobre Nós</Link></li>
+              <li><Link to="/login" className="hover:text-white transition-colors flex items-center gap-2"> <SignInIcon size={16}/> Login</Link></li>
+            
             </ul>
           </div>
 
