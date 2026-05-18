@@ -37,7 +37,7 @@ function ListarMentorias() {
             nome: "Aimee Tompson",
             especialidade: "Java & Spring",
             bio: "Especialista em Java, focada em performance e escalabilidade. Atualmente Instrutora na Generation Brasil.",
-            foto: "https://media.licdn.com/dms/image/v2/C4D03AQG-GED78ZIu3g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1605569367685?e=1778716800&v=beta&t=WVgc9rJaLVjIjwPWj92iqKHZhCCbiOD1Kl3bfjMA9aY",
+            foto: "https://ik.imagekit.io/xhkoeth0m/connectElas/Mentorias/1605569367685.jpg",
             linkedin: "https://www.linkedin.com/in/aimeezita/",
             disponivel: true
           },
@@ -46,7 +46,7 @@ function ListarMentorias() {
             nome: "Rafael Queiróz",
             especialidade: "React & TypeScript",
             bio: "Com mais de 25 anos de experiência na área de Tecnologia da Informação. Ajudo as pessoas a dominarem a área da tecnologia.",
-            foto: "https://avatars.githubusercontent.com/u/60499241?v=4",
+            foto: "https://ik.imagekit.io/xhkoeth0m/connectElas/Mentorias/60499241.jpg",
             linkedin: "https://linkedin.com",
             github: "https://github.com/rafaelq80",
             disponivel: true
@@ -56,9 +56,19 @@ function ListarMentorias() {
              nome: "Vitória Hardt",
              especialidade: "Empregabilidade & Carreira",
              bio: "Mentora de Empregabilidade: Humanizando processos seletivos e destravando carreiras.",
-             foto: "https://media.licdn.com/dms/image/v2/D4D03AQFZ4oFX2-jqYA/profile-displayphoto-scale_400_400/B4DZ3gWp1kKAAg-/0/1777585529426?e=1779926400&v=beta&t=rZv5bPLyJy5WbYDHy3sbnbJeEDNq0M6kuxohvh0RvAo",
+             foto: "https://ik.imagekit.io/xhkoeth0m/connectElas/Mentorias/1777585529426.jpg",
              linkedin: "https://www.linkedin.com/in/vithardt/",
              disponivel: false
+          },
+
+          {
+             id: 4,
+             nome: "Camila Evangelista",
+             especialidade: "Empregabilidade & Gestão de projetos",
+             bio: "Desenvolvo, estruturo e lidero programas e projetos de impacto social com foco em empregabilidade, mentoria, diversidade e voluntariado corporativo.",
+             foto: "https://ik.imagekit.io/xhkoeth0m/connectElas/Mentorias/imagem_2026-05-18_105252301.png",
+             linkedin: "https://www.linkedin.com/in/camila-evangelista-da-silva/",
+             disponivel: true
           }
         ]);
       } finally {
