@@ -30,14 +30,14 @@ function SobreNos() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24 md:mb-32">
           <div className="space-y-6 md:space-y-8 order-2 lg:order-1">
             <div className="inline-block px-4 py-1 rounded-full border border-fuchsia-500/20 bg-fuchsia-500/5 text-fuchsia-400 text-[10px] font-black uppercase tracking-widest">
-               Nossa Propósito
+               Nosso Propósito
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-white uppercase italic tracking-tighter">
               Mais do que uma plataforma,<br />
               um <span className="text-fuchsia-500 from-fuchsia-400 to-violet-400 font-extrabold underline decoration-fuchsia-500/30">Ecossistema</span>.
             </h2>
             <p className="text-slate-400 leading-relaxed text-base md:text-lg">
-              A 7Code nasceu da necessidade de criar um espaço seguro, vibrante e repleto de oportunidades para mulheres na tecnologia. Somos um hub de conexão entre empresas que valorizam a diversidade e profissionais que buscam o próximo nível em suas carreiras.
+              A ConnectElas nasceu da necessidade de criar um espaço seguro, vibrante e repleto de oportunidades para mulheres na tecnologia. Somos um hub de conexão entre empresas que valorizam a diversidade e profissionais que buscam o próximo nível em suas carreiras.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 pt-4">
               <div>
