@@ -8,6 +8,7 @@ import Perfil from './pages/perfil/Perfil'
 
 import FormCandidatura from './components/oportunidades/formcandidatura/FormCandidatura'
 import MinhasCandidaturas from './pages/perfil/MinhasCandidaturas'
+import FormPerfil from './pages/perfil/FormPerfil'
 import FormOportunidade from './components/oportunidades/formoportunidade/FormOportunidade'
 import DeletarOportunidade from './components/oportunidades/deletaroportunidade/DeletarOportunidade'
 
@@ -27,6 +28,7 @@ import CadastroRecrutador from './pages/cadastro/CadastroRecrutador'
 import Comunidade from './pages/comunidade/Comunidade'
 import { ToastContainer } from 'react-toastify'
 import FloatingChat from './components/chat/FloatingChat'
+import ScrollToTop from './components/scrolltotop/ScrollToTop'
 
 function App() {
  
@@ -34,6 +36,7 @@ function App() {
     <AuthProvider>
       <ToastContainer />
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-screen bg-slate-950">
           <Navbar />
           <Routes>
@@ -53,6 +56,7 @@ function App() {
 
             {/* Rotas de Perfil */}
             <Route path="/perfil" element={<Perfil />} />
+            <Route path="/perfil/editar" element={<FormPerfil />} />
             <Route path="/perfil/candidaturas" element={<MinhasCandidaturas />} />
 
             {/* Rotas da Comunidade */}
