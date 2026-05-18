@@ -82,7 +82,10 @@ function MinhasCandidaturas() {
             Retornar_ao_perfil
           </button>
           <h1 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase italic">
-            Minhas <span className="bg-linear-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Candidaturas</span>
+            {usuario.tipo?.toLowerCase() === 'recruiter' ? 'Vagas ' : 'Minhas '}
+            <span className="bg-linear-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+              {usuario.tipo?.toLowerCase() === 'recruiter' ? 'Anunciadas' : 'Candidaturas'}
+            </span>
           </h1>
           <p className="text-slate-500 font-mono text-[10px] mt-2 uppercase tracking-[0.3em]">
             // process_tracking.log
@@ -117,12 +120,14 @@ function MinhasCandidaturas() {
                       <span className="text-[9px] text-slate-600 font-black uppercase tracking-widest mb-1">Status</span>
                       <span className="flex items-center gap-2 text-xs text-green-400 font-bold bg-green-500/5 px-3 py-1 rounded-full border border-green-500/20">
                         <CheckCircleIcon size={14} weight="bold" />
-                        Em Análise
+                        {usuario.tipo?.toLowerCase() === 'recruiter' ? vaga.status : 'Em Análise'}
                       </span>
                     </div>
 
                     <div className="flex flex-col">
-                      <span className="text-[9px] text-slate-600 font-black uppercase tracking-widest mb-1">Aplicada em</span>
+                      <span className="text-[9px] text-slate-600 font-black uppercase tracking-widest mb-1">
+                        {usuario.tipo?.toLowerCase() === 'recruiter' ? 'Criada em' : 'Aplicada em'}
+                      </span>
                       <span className="flex items-center gap-2 text-xs text-slate-400 font-mono">
                         <ClockIcon size={14} />
                         {new Date(vaga.dataCriacao).toLocaleDateString('pt-BR')}
@@ -149,7 +154,7 @@ function MinhasCandidaturas() {
                   <BriefcaseIcon size={32} className="text-slate-700" />
                 </div>
                 <p className="text-slate-500 font-mono text-xs uppercase tracking-widest">
-                  Você ainda não realizou nenhuma candidatura.
+                  {usuario.tipo?.toLowerCase() === 'recruiter' ? 'Você ainda não anunciou nenhuma vaga.' : 'Você ainda não realizou nenhuma candidatura.'}
                 </p>
                 <Link to="/oportunidades" className="mt-6 inline-block text-fuchsia-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors">
                   Explorar_Mural_de_Vagas →
