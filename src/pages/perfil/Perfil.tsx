@@ -65,7 +65,7 @@ function Perfil() {
         console.error("Erro ao carregar dados.", error);
         // Em vez de criar um objeto novo com foto fixa, 
         // apenas garantimos que o nome e usuario venham do AuthContext
-        setPerfilCompleto(prev => ({
+        setPerfilCompleto((prev: any) => ({
           ...prev,
           nome: usuario.nome || "Desenvolvedora Connect",
           usuario: usuario.usuario,
