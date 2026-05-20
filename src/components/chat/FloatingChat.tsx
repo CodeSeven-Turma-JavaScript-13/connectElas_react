@@ -14,6 +14,7 @@ function FloatingChat() {
       {/* Mensagem flutuante */}
 {!open && (
   <div className="
+    hidden md:block
     fixed bottom-21 right-6 z-40
     bg-linear-to-br from-slate-900 via-slate-800 to-zinc-800/80 border border-white/5 text-white text-sm
     px-4 py-1 rounded-md shadow-xl
@@ -37,6 +38,7 @@ function FloatingChat() {
         <button
           onClick={() => setOpen(true)}
           className="
+            hidden md:block
             fixed bottom-6 right-6 z-50
             p-4 rounded-full
             bg-linear-to-r from-violet-600 to-fuchsia-700
