@@ -77,7 +77,7 @@ function Navbar() {
         <div className="lg:hidden flex items-center">
           <button 
             onClick={toggleMenu}
-            className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
           >
             {isMenuOpen ? <X size={28} weight="bold" /> : <List size={28} weight="bold" />}
           </button>

@@ -207,7 +207,7 @@ function Contato({ isModal = false, onClose }: ContatoProps) {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex-1 flex items-center justify-center gap-2 bg-linear-to-r from-violet-600 to-fuchsia-700 py-4 rounded-xl text-white font-bold"
+                className="flex-1 flex items-center justify-center gap-2 bg-linear-to-r from-violet-600 to-fuchsia-700 py-4 rounded-xl text-white font-bold cursor-pointer"
               >
                 {loading ? "Enviando..." : success ? "Enviado ✓" : "Enviar"}
                 <PaperPlaneTiltIcon size={20} weight="bold" />
@@ -217,7 +217,7 @@ function Contato({ isModal = false, onClose }: ContatoProps) {
                 <button
                   type="button"
                   onClick={() => onClose?.()}
-                  className="flex-1 bg-slate-800 py-4 rounded-xl text-slate-300"
+                  className="flex-1 bg-slate-800 py-4 rounded-xl text-slate-300 cursor-pointer"
                 >
                   Cancelar
                 </button>

@@ -10,7 +10,7 @@ function Contato() {
 
       <div className="mx-auto max-w-6xl">
         
-        {/* Header Seção */}
+        {/* Header Seção
         <div className="text-center mb-20">
           <div className="h-14 w-14 bg-linear-to-br from-violet-600 to-fuchsia-700 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl">
              <ChatCircleTextIcon size={32} weight="bold" />
@@ -22,6 +22,29 @@ function Contato() {
             <TerminalIcon size={14} className="text-violet-400" />
             // establish_secure_connection.v2
           </p>
+        </div> */}
+
+        {/* HEADER */}
+        <div className="flex flex-col items-center mb-12">
+          {/* <img
+            src="https://ik.imagekit.io/majulial/connect/favIconConnectElas.png.png"
+            width={75}
+          /> */}
+
+          <div className="h-14 w-14 bg-linear-to-br from-violet-600 to-fuchsia-700 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl">
+             <ChatCircleTextIcon size={32} weight="bold" />
+          </div>
+
+          <h1 className="text-4xl font-black md:text-7xl text-white italic mb-2">
+            ABRA UM <span className="bg-linear-to-r from-fuchsia-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">CHAMADO</span>
+          </h1>
+
+          <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.3em] flex items-center gap-2">
+            <TerminalIcon size={14} className="text-violet-400" />
+            // connectelas.support
+          </p>
+
+          <div className="w-full h-0.5 mt-2 bg-linear-to-r from-violet-600 via-fuchsia-500 to-cyan-400 animate-pulse"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
@@ -30,7 +53,9 @@ function Contato() {
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-slate-900/40 backdrop-blur-3xl border border-white/5 p-10 rounded-[40px] relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-violet-600/10 rounded-full blur-2xl -z-10"></div>
-              <h3 className="text-white font-black uppercase tracking-widest text-xs mb-10 border-b border-white/5 pb-6">Canais_Físicos</h3>
+              <h3 className="text-white font-black uppercase tracking-widest text-xs mb-10 border-b border-white/5 pb-6 text-center">
+                         Canais_Físicos
+              </h3>
               
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
@@ -115,7 +140,7 @@ function Contato() {
 
                    <button 
                     type="submit"
-                    className="w-full group relative flex items-center justify-center rounded-2xl bg-linear-to-r from-violet-600 to-fuchsia-700 px-8 py-5 text-white font-black uppercase tracking-tighter transition-all hover:shadow-[0_0_40px_rgba(139,92,246,0.4)] hover:scale-[1.01] active:scale-95"
+                    className="w-full group relative flex items-center justify-center rounded-2xl bg-linear-to-r from-violet-600 to-fuchsia-700 px-8 py-5 text-white font-black uppercase tracking-tighter transition-all hover:shadow-[0_0_40px_rgba(139,92,246,0.4)] hover:scale-[1.01] active:scale-95 cursor-pointer"
                    >
                      Enviar Mensagem
                      <PaperPlaneTiltIcon size={24} weight="bold" className="ml-3 transition-transform group-hover:translate-x-1" />

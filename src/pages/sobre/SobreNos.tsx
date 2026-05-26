@@ -24,6 +24,7 @@ function SobreNos() {
           <p className="max-w-2xl mx-auto text-slate-500 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] leading-relaxed">
             // connect_elas.about_us.manifesto.v2.0
           </p>
+           <div className="w-full h-0.5 mt-2 bg-linear-to-r from-violet-600 via-fuchsia-500 to-cyan-400 animate-pulse"></div>
         </div>
 
         {/* Nossa Missão */}
