@@ -1,7 +1,25 @@
 
 import { ChatCircleTextIcon, EnvelopeSimpleIcon, GithubLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon, TerminalIcon } from '@phosphor-icons/react';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
 
 function Contato() {
+
+    const handleToast = () => {
+  toast.success("Mensagem enviada com sucesso 🚀", {
+    position: "top-right",
+    autoClose: 3000,
+    theme: "dark",
+    style: {
+      background: "#020617",
+      border: "1px solid rgba(139,92,246,0.4)",
+      color: "#c4b5fd",
+      borderRadius: "12px"
+    }
+  })
+}
+
   return (
     <div className="min-h-screen bg-slate-950 pt-28 pb-12 px-4 relative overflow-hidden text-slate-300">
       
@@ -10,19 +28,7 @@ function Contato() {
 
       <div className="mx-auto max-w-6xl">
         
-        {/* Header Seção
-        <div className="text-center mb-20">
-          <div className="h-14 w-14 bg-linear-to-br from-violet-600 to-fuchsia-700 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl">
-             <ChatCircleTextIcon size={32} weight="bold" />
-          </div>
-          <h1 className="text-4xl md:text-7xl font-black text-white italic tracking-tighter uppercase mb-4">
-            Abra um <span className="text-violet-500">Chamado</span>
-          </h1>
-          <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.4em] flex items-center justify-center gap-2">
-            <TerminalIcon size={14} className="text-violet-400" />
-            // establish_secure_connection.v2
-          </p>
-        </div> */}
+    
 
         {/* HEADER */}
         <div className="flex flex-col items-center mb-12">
@@ -100,12 +106,44 @@ function Contato() {
           {/* Form Side */}
           <div className="lg:col-span-3">
              <div className="bg-slate-900/40 backdrop-blur-3xl border border-white/5 p-10 md:p-14 rounded-[40px] shadow-2xl">
-                <form className="space-y-6">
+                <form
+              action="https://formsubmit.co/codeseven7minds@gmail.com"
+              method="POST"
+              onSubmit={handleToast}
+              className="space-y-6"
+            >
+
+               {/* configurações ocultas */}
+  <input
+    type="hidden"
+    name="_subject"
+    value="Novo contato recebido - ConnectElas"
+  />
+
+  <input
+    type="hidden"
+    name="_captcha"
+    value="false"
+  />
+
+  <input
+    type="hidden"
+    name="_template"
+    value="table"
+  />
+
+  <input
+    type="hidden"
+    name="_next"
+    value="http://localhost:5173"
+  />
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label className="text-[10px] font-black text-slate-600 uppercase tracking-widest ml-1">Assinatura</label>
                         <input 
                           type="text" 
+                            name="Nome"
+                            required
                           placeholder="Ex: Seu Nome"
                           className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-6 py-4 text-slate-200 focus:outline-none focus:border-violet-500/50 transition-all font-mono text-sm"
                         />
@@ -114,6 +152,8 @@ function Contato() {
                         <label className="text-[10px] font-black text-slate-600 uppercase tracking-widest ml-1">E-mail de Retorno</label>
                         <input 
                           type="email" 
+                          name="Email"
+                          required
                           placeholder="dev@mail.com"
                           className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-6 py-4 text-slate-200 focus:outline-none focus:border-violet-500/50 transition-all font-mono text-sm"
                         />
@@ -124,6 +164,8 @@ function Contato() {
                       <label className="text-[10px] font-black text-slate-600 uppercase tracking-widest ml-1">Protocolo de Assunto</label>
                       <input 
                         type="text" 
+                         name="Assunto"
+                          required
                         placeholder="Ex: Suporte Técnico, Parcerias..."
                         className="w-full bg-slate-950/60 border border-white/5 rounded-2xl px-6 py-4 text-slate-200 focus:outline-none focus:border-violet-500/50 transition-all font-mono text-sm"
                       />
@@ -132,6 +174,7 @@ function Contato() {
                    <div className="space-y-2">
                       <label className="text-[10px] font-black text-slate-600 uppercase tracking-widest ml-1">Corpo do Chamado</label>
                       <textarea 
+                      name="Mensagem"
                         rows={6}
                         placeholder="Descreva sua solicitação com detalhes técnicos..."
                         className="w-full bg-slate-950/60 border border-white/5 rounded-4xl px-8 py-6 text-slate-200 focus:outline-none focus:border-violet-500/50 transition-all font-mono text-sm resize-none"
@@ -152,6 +195,7 @@ function Contato() {
         </div>
 
       </div>
+      <ToastContainer />
     </div>
   );
 }

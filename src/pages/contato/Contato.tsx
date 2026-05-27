@@ -62,19 +62,43 @@ function Contato({ isModal = false, onClose }: ContatoProps) {
   }
 
   // ✅ TIPAGEM DO EVENTO
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async (e: React.FormEvent) => {
 
-    if (!validate()) return
+  e.preventDefault()
 
-    setLoading(true)
+  if (!validate()) return
 
-    setTimeout(() => {
-      setLoading(false)
+  setLoading(true)
+
+  try {
+
+    const response = await fetch(
+      "https://formsubmit.co/ajax/codeseven7minds@gmail.com",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+
+        body: JSON.stringify({
+          nome: formData.nome,
+          email: formData.email,
+          assunto: formData.assunto,
+          mensagem: formData.mensagem
+        })
+
+      }
+    )
+
+    const data = await response.json()
+
+    if (data.success === "true" || response.ok) {
+
       setSuccess(true)
 
-      // ✅ TOAST FUNCIONANDO
-      toast.success("Mensagem enviada!", {
+      toast.success("Mensagem enviada com sucesso!", {
         style: {
           background: "#020617",
           border: "1px solid rgba(139,92,246,0.3)",
@@ -82,14 +106,34 @@ function Contato({ isModal = false, onClose }: ContatoProps) {
         }
       })
 
-      // fecha depois de 1.5s
+      setFormData({
+        nome: "",
+        email: "",
+        assunto: "",
+        mensagem: ""
+      })
+
+      setErrors({})
+
       setTimeout(() => {
-        onClose?.()
+
         setSuccess(false)
+
+        onClose?.()
+
       }, 1500)
 
-    }, 1500)
+    }
+
+  } catch {
+
+    toast.error("Erro ao enviar mensagem")
+
   }
+
+  setLoading(false)
+
+}
 
   return (
     <div
@@ -165,6 +209,24 @@ function Contato({ isModal = false, onClose }: ContatoProps) {
 
           {/* FORM */}
           <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+
+            <input
+              type="hidden"
+              name="_subject"
+              value="Novo contato ConnectElas"
+              />
+
+              <input
+              type="hidden"
+              name="_captcha"
+              value="false"
+              />
+
+              <input
+              type="hidden"
+              name="_template"
+              value="table"
+              />
 
             <input
               type="text"
